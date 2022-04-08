@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project1</title>
+    <title>Hitch-a-Ride</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <nav>
+        <%= link_to 'Home', root_path %> 
+        <% if @current_user.present?%>
+           <%= link_to 'Log Out', login_path, :method => 'delete' %>
+        <% else %>
+            <%= link_to 'Sign Up', new_user_path %>
+            <%= link_to 'Log In', login_path %>
+        <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
