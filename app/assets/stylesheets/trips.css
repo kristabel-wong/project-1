@@ -1,0 +1,24 @@
+.icon {
+    height: 15em;
+    display: block;
+}
+
+.thumb {
+    height: 10em;
+    display: block;
+}
+
+div {
+    background-color: rgb(219, 233, 239);
+    width: 400px;
+    height: 340px;
+}
+
+a:visited, a:hover, a {
+    text-decoration: none;
+    color: black;
+}
+
+.description {
+    display: block;
+}

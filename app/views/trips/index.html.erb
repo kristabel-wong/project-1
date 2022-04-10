@@ -1,0 +1,19 @@
+<h1>Find a Trip</h1>
+
+<div>
+
+<% @trips.each do |trip| %>
+<div>
+    <%= link_to trip_path(trip), :class => "button" do %>
+    <h2><%= trip.title %></h2> 
+    <h3>Leaving: <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> </h3>
+        <ul>
+            <li>Seats available: <%= trip.seat %></li>
+            <li>Price: <%= number_to_currency trip.price, precision: 0 %></li>
+            <li>Car: <%= trip.car_make %> <%= trip.car_model %></li>
+            <%= image_tag trip.image, :class => 'thumb' %>
+        </ul>
+    <%end%>
+</div>
+<% end %>
+

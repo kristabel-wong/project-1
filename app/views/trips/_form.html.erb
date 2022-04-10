@@ -1,0 +1,46 @@
+<%= form_for @trip do |f| %>
+<ul>
+    <li>
+        <%= f.label :title %>
+        <%= f.text_field :title, :placeholder => "Sydney to Melbourne", :required => true %>
+    </li>
+    <li>
+        <%= f.label :date %>
+        <%= f.date_field :date, :placeholder => 'DD-MM-YYYY', :required => true  %>
+    </li>
+    <li>
+        <%= f.label :time %>
+        <%= f.time_field :time, :placeholder => '07:00', :required => true  %>
+    </li>
+    <li>
+        <%= f.label :seat %>
+        <%= f.text_field :seat, :placeholder => "1", :required => true %>
+    </li>
+    <li>
+        <%= f.label :price %>
+        <%= f.text_field :price, :placeholder => "10", :required => true %>
+    </li>
+
+    <li>
+        <%= f.label :car_make %>
+        <%= f.text_field :car_make, :placeholder => "Toyota" %>
+    </li>
+    <li>
+        <%= f.label :car_model %>
+        <%= f.text_field :car_model, :placeholder => "Corolla" %>
+    </li>
+    <li>
+        <%= f.label "Picture of your Car" %>
+        <%= f.url_field :image, :placeholder => "http://..."%> 
+    </li>
+    <li>
+        <%= f.label :description, :class => 'description' %>
+        <%= f.text_area :description, :placeholder => "Heading to Jindabyne, leaving from Sydney near Central Station...", size: "70x5" %>
+    </li>
+        <li>
+        <%= f.label :user_id %>
+        <%= f.select :user_id, User.pluck(:first_name, :id), :include_blank => true%>
+    </li>
+    <%= f.submit %>
+</ul>
+<% end %>

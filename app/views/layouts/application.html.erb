@@ -7,13 +7,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.min.css">
+
+
   </head>
 
   <body>
     <nav>
-        <%= link_to 'Home', root_path %> 
+        <%= link_to 'Home', trips_path %> 
         <% if @current_user.present?%>
-           <%= link_to 'Log Out', login_path, :method => 'delete' %>
+            <%= link_to 'Profile', @current_user %>
+            <%= link_to 'Post-a-Ride', new_trip_path %>
+            <%= link_to 'Log Out', login_path, :method => 'delete' %>
         <% else %>
             <%= link_to 'Sign Up', new_user_path %>
             <%= link_to 'Log In', login_path %>

@@ -1,2 +1,39 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% if @current_user.present?%>
+    <% if @current_user.id == @user.id%>
+        <h1>Your Profile</h1>
+    <% else %>
+        <h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
+    <% end %>
+<% end %>
+
+<ul>
+    <%= image_tag @user.image, :class => 'icon' %>
+    <li>First Name: <%= @user.first_name %> </li>
+    <li>Last Name: <%= @user.last_name %> </li>
+    <li>Email Address: <%= @user.email %></li>
+
+</ul>
+
+<% if @current_user.present?%>
+    <% if @current_user.id == @user.id%> <!-- only the user who created the trip can edit -->
+        <button> <%= link_to 'Edit Profile', edit_user_path %></button>
+    
+
+    <h2>Your Trips</h2>
+        <% @user.trips.each do |trip| %>
+            <p> 
+                <h3><%= link_to trip.title, trip_path %></h3>
+                <ul>
+                    <li> <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %></li>
+                    <li>Passengers:</li>
+                    <li>Price: <%= number_to_currency trip.price, precision: 0 %></li>
+                    <li>Car: <%= trip.car_make %> <%= trip.car_model %></li>
+                    <%= link_to image_tag(trip.image, :class => 'thumb'), trip_path %>
+                </ul>
+            </p>
+        <% end%>
+    <% end %>
+
+
+<% end %>
+
