@@ -12,11 +12,11 @@
 <%= form_for @user do |f| %> 
     <ul>
         <li>
-            <%= f.label :first_name %>
+            <%= f.label :first_name, "First Name" %>
             <%= f.text_field :first_name, :required => true  %>
         </li>
         <li>
-            <%= f.label :last_name %>
+            <%= f.label :last_name, "Last Name" %>
             <%= f.text_field :last_name, :required => true  %>
         </li>
         <li>
@@ -28,7 +28,7 @@
             <%= f.password_field :password %>
         </li>
         <li>
-            <%= f.label :password_confirmation %>
+            <%= f.label :password_confirmation, "Password Confirmation" %>
             <%= f.password_field :password_confirmation %>
         </li>
 

@@ -37,10 +37,9 @@
         <%= f.label :description, :class => 'description' %>
         <%= f.text_area :description, :placeholder => "Heading to Jindabyne, leaving from Sydney near Central Station...", size: "70x5" %>
     </li>
-        <li>
-        <%= f.label :user_id %>
-        <%= f.select :user_id, User.pluck(:first_name, :id), :include_blank => true%>
-    </li>
+
+        <%= f.hidden_field :user_id, :value => @current_user.id %>
+
     <%= f.submit %>
 </ul>
 <% end %>

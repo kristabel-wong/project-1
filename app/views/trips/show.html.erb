@@ -26,3 +26,11 @@
         <%= button_to 'Delete Trip', @trip, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
     <% end %>
 <% end %>
+
+<% if @current_user.present?%>
+    <% if @current_user.id != @trip.user.id%> <!-- only the user who created the trip can edit -->
+        <button> <%= link_to 'Book Trip', bookings_path, :method => 'post', :data => { :confirm => 'Confirm booking?' } %></button>
+    <% end %>
+<% end %>
+
+

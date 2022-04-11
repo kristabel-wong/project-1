@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
     def index
-        @trips = Trip.all
+        @trips = Trip.order('date', 'time') # ordering the index page by date and then time
     end
 
     def new
@@ -8,7 +8,8 @@ class TripsController < ApplicationController
     end
 
     def create
-        trip = Trip.create trip_params
+        trip = Trip.create trip_params # if @current_user.id == params[:user_id]
+        @current_user.trips << trip
         redirect_to trip
     end
 
@@ -36,4 +37,5 @@ class TripsController < ApplicationController
     def trip_params
         params.require(:trip).permit(:title, :image, :date, :time, :seat, :price, :car_make, :car_model, :description, :user_id)
     end
+
 end
