@@ -10,7 +10,7 @@
 
 div {
     background-color: rgb(219, 233, 239);
-    width: 400px;
+    width: 600px;
     height: 340px;
 }
 
@@ -21,4 +21,12 @@ a:visited, a:hover, a {
 
 .description {
     display: block;
+}
+
+span {
+    color: green;
+}
+
+.passenger {
+    background-color: blanchedalmond;
 }

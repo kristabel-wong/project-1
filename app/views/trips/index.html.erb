@@ -2,18 +2,20 @@
 
 <div>
 
-<% @trips.each do |trip| %>
-<div>
-    <%= link_to trip_path(trip), :class => "button" do %>
-    <h2><%= trip.title %></h2> 
-    <h3>Leaving: <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> </h3>
-        <ul>
-            <li>Seats available: <%= trip.seat %></li>
-            <li>Price: <%= number_to_currency trip.price, precision: 0 %></li>
-            <li>Car: <%= trip.car_make %> <%= trip.car_model %></li>
-            <%= image_tag trip.image, :class => 'thumb' %>
-        </ul>
-    <%end%>
-</div>
-<% end %>
 
+<% @trips.each do |trip| %>
+<% unless trip.date < Date.today %>
+    <div>
+        <%= link_to trip_path(trip), :class => "button" do %>
+        <h2><%= trip.title %></h2> 
+        <h3>Leaving: <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> with <%= trip.user.first_name %><% if trip.seat == trip.bookings.count %> - <span> FULLY BOOKED </span> <% end %> </h3>
+            <ul>
+                <li>Seats available: <%= trip.seat - trip.bookings.count %> </li>
+                <li>Price: <%= number_to_currency trip.price, precision: 0 %></li>
+                <li>Car: <%= trip.car_make %> <%= trip.car_model %></li>
+                <%= image_tag trip.image, :class => 'thumb' %>
+            </ul>
+        <%end%>
+    </div>
+    <% end %>
+<% end %>

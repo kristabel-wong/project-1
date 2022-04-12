@@ -14,8 +14,9 @@
 
   <body>
     <nav>
-        <%= link_to 'Home', trips_path %> 
+        <%= link_to 'Find-A-Trip', trips_path %> 
         <% if @current_user.present?%>
+            <%= link_to 'Home', root_path %>
             <%= link_to 'Profile', @current_user %>
             <%= link_to 'Post-a-Ride', new_trip_path %>
             <%= link_to 'Log Out', login_path, :method => 'delete' %>
