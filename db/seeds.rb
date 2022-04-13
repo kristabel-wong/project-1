@@ -34,3 +34,8 @@ puts "#{ Trip.count } trips."
 u1.trips << t1 << t2 << t5
 u2.trips << t3 << t4
 
+u1.bookings << b1
+u2.bookings << b2
+
+t1.bookings << b2
+t3.bookings << b1
