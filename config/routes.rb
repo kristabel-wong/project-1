@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
 
     get '/login' => 'session#new'
-    get '/login/:id' => 'session#show', :as => :show_login
     post '/login' => 'session#create'
     delete '/login' => 'session#destroy'
+    get '/passenger' => 'pages#index'
 end

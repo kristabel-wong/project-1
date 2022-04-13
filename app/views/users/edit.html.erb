@@ -1,9 +1,9 @@
 <h1>Edit Profile</h1>
 
-<%= form_for @user do |f| %> 
+<%= form_for @user, :html => {:multipart => true } do |f| %> 
     <ul>
         <li>
-            <%= f.label :first_name, "First Name" %>
+            <div class="label-list"><%= f.label :first_name, "First Name" %></div>
             <%= f.text_field :first_name  %>
         </li>
         <li>
@@ -16,7 +16,7 @@
         </li>
             <li>
             <%= f.label :image %>
-            <%= f.url_field :image  %>
+            <%= f.cl_image_upload :image  %>
         </li>
         <li>
             <%= f.label :password, "New Password" %>

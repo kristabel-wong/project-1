@@ -1,17 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
+
+* {
+    font-family: 'Hind', sans-serif;
+}
+
+.home-page {
+    background-image: url(/assets/jake-hills-TfJKSjoESc4-unsplash.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    height: 60vh;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+}
+
+.home-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300%;
+    text-transform: uppercase;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 50vw;
+    margin: 40px auto;
+    padding: 20px 50px; 
+    border-radius: 20px;
+}
+
 .icon {
     height: 15em;
     display: block;
 }
 
-.thumb {
+.user-icon {
+    border-radius: 50px;
     height: 10em;
-    display: block;
 }
 
-div {
-    background-color: rgb(219, 233, 239);
-    width: 600px;
-    height: 340px;
+.thumb {
+    height: 10em;
+    float: right;
+}
+
+.trip-index {
+    background-color:  rgb(219, 233, 239);
+    height: 250px;
+    margin: 20px 0;
+    padding: 20px 30px 0 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
 }
 
 a:visited, a:hover, a {
@@ -29,4 +72,77 @@ span {
 
 .passenger {
     background-color: blanchedalmond;
+    height: 250px;
+    margin: 20px 0;
+    padding: 20px 30px 0 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+}
+
+.bookings {
+    background-color: blanchedalmond;
+    height: 60px;
+    margin: 20px 0;
+    padding: 20px 30px 0 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+}
+
+.index,.show-bookings  {
+    margin: 0;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sign {
+    width: 30vw;
+    margin: 0 auto;
+}
+
+.sign ul {
+    list-style-type: none;
+    line-height: 2em;
+    padding-left: 25px;
+}
+
+.sign input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-list {
+    width: 200px;
+    display: inline;
+}
+
+.home-nav {
+    margin: 30px auto;
+    width: 40vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    height: 200px;
+    line-height: 200px;
+    text-transform: uppercase;
+}
+
+.find-a-trip {
+    background-color: blanchedalmond;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+}
+
+.post-a-trip {
+    background-color:  rgb(219, 233, 239);
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
 }

@@ -1,48 +1,21 @@
-<h1>Hitch-a-Ride</h1>
 
-<% if @current_user.present?%>
-    <h2>Welcome back <%= @current_user.first_name %>!</h2>
-<% end %>
-
-
-<% if @current_user.bookings.present? %>
-    <h2>Upcoming Passenger Trips</h2>
-        <% @current_user.bookings.each do |booking| %>
-        <% unless booking.trip.date < Time.now %>
-        <%= link_to trips_path(@trip_id), :class => "button" do %> <!-- this button doesnt work-->
-            <div class="passenger">
-                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.title %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
-                <ul>
-                    <li> Trip date: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>    </li>
-                    <li> Driver name: <%= booking.trip.user.first_name %></li>
-                    <%= image_tag booking.trip.image, :class => 'thumb' %>
-                    <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :data => { :confirm => 'Are you sure you want to delete your booking?' } %>
-                </ul>
-            </div>
-        <% end %>
-        <% end %>
-        <% end %>
-
-    <h2>Your Past Trips</h2>
-        <% @current_user.bookings.each do |booking| %>
-        <% unless booking.trip.date > Time.now %>
-        <%= link_to trips_path(@trip_id), :class => "button" do %> <!-- this button doesnt work-->
-            <div class="passenger">
-                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.title %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
-                <ul>
-                    <li> Trip date: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>    </li>
-                    <li> Driver name: <%= booking.trip.user.first_name %></li>
-                    <%= image_tag booking.trip.image, :class => 'thumb' %>
-                    <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :data => { :confirm => 'Are you sure you want to delete your booking?' } %>
-                </ul>
-            </div>
-        <% end %>
-        <% end %>
-        <% end %>
+<div class="home-page">
+    <h1 class="home-title">Hitch-A-Ride Today</h1>
+</div>
 
 
+<div class="home-nav">
+    <%= link_to trips_path, :class => 'button' do %>
+        <div class="find-a-trip">
+            <h2>Find-a-Trip</h2>
+        </div>
+    <% end %>
 
+    <%= link_to new_trip_path, :class => 'button' do %>
+        <div class="post-a-trip">
+            <h2>Post-a-Trip</h2>
+        </div>
+    <% end %>
 
+</div>
 
-
-<% end %>
