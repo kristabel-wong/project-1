@@ -33,8 +33,7 @@ class UsersController < ApplicationController
         @user.update_attributes(user_params)
         @user.update user_params
         @user.save
-        redirect_to root_path
-        redirect_to user
+        redirect_to user_path
     end
 
     def show
