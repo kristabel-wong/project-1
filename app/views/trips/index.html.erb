@@ -5,7 +5,7 @@
 <% @trips.each do |trip| %>
     <%= link_to trip_path(trip), :class => "button" do %>
     <div class="trip-index">
-        <h2 class="index"><%= trip.title %></h2> 
+        <h2 class="index"><%= trip.origin %> to <%= trip.destination %></h2> 
         <%= image_tag trip.image, :class => 'thumb' %>
         <h3>Leaving: <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> with <%= trip.user.first_name %><% if trip.seat == trip.bookings.count %> - <span> FULLY BOOKED </span> <% end %> </h3>
             <ul>

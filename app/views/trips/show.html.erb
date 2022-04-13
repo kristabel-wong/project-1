@@ -1,4 +1,4 @@
-<h1><%= @trip.title %> <% if @trip.date < Time.now %> - EXPIRED <% end %> </h1> 
+<h1><%= @trip.origin %> to <%= @trip.destination %><% if @trip.date < Time.now %> - EXPIRED <% end %> </h1> 
 <h3>
 <% if @trip.date.present? %><%= @trip.date.strftime '%A, %B %e' %> <%end%> <% if @trip.time.present? %> at <%= @trip.time.strftime '%l:%M %p'%> <%end%> 
 </h3>
@@ -30,20 +30,25 @@
 </p>
 
 <% if @trip.bookings && @trip.bookings.any? %>
-<h2>Passengers</h2>
-    <% @trip.bookings.each do |booking| %> 
-        <li> <%= booking.user.first_name %> <% if @current_user == booking.user && booking.trip.date > Date.today %> <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :data => { :confirm => 'Are you sure you want to delete your booking?' } %> <% end %> </li>
+<div class="booked">
+    <h2>Passengers</h2>
+        <ul>
+            <% @trip.bookings.each do |booking| %> 
+                <li> <%= booking.user.first_name %> <% if @current_user == booking.user && booking.trip.date > Date.today %> 
+                <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :data => { :confirm => 'Are you sure you want to delete your booking?' } %> <% end %> 
+                </li>
+            <% end %>
+        </ul>
     <% end %>
-<% end %>
-
-<% if @current_user.present?%>
-    <% if @current_user.id == @trip.user.id%> <!-- only the user who created the trip can edit -->
-        <% unless @trip.date < Time.now %>
-            <%= link_to 'Edit Trip', edit_trip_path(@trip), :class => 'button'%>
-            <%= button_to 'Delete Trip', @trip, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+</div>
+    <% if @current_user.present?%>
+        <% if @current_user.id == @trip.user.id%> <!-- only the user who created the trip can edit -->
+            <% unless @trip.date < Time.now %>
+                <button><%= link_to 'Edit Trip', edit_trip_path(@trip), :class => 'button' %></button>
+                <%= button_to 'Delete Trip', @trip, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+            <% end %>
         <% end %>
     <% end %>
-<% end %>
 
 
 <% if @current_user.present?%>
@@ -54,3 +59,16 @@
     <% end %>
 <% end %>
 
+<% if @current_user.present?%>
+    <button><%= link_to 'Add Comment', new_comment_path(@trip), :class => 'button' %></button>
+<% end %>
+
+
+<% if @trip.comments.length != 0  %>
+
+    <% @trip.comments.each do |comment| %>
+        <p> <%= comment.user.first_name %> : <%= comment.content %> </p> <% if @current_user == comment.user %> <%= button_to 'Delete Comment', comment_path(comment.trip_id,comment.id), :method => 'delete', :data => { :confirm => 'Are you sure?' }  %> <% end%>
+
+    <% end %>
+
+<% end  %>

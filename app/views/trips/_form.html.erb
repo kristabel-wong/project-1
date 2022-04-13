@@ -1,8 +1,12 @@
 <%= form_for @trip do |f| %>
 <ul>
     <li>
-        <%= f.label :title %>
-        <%= f.text_field :title, :placeholder => "Sydney to Melbourne", :required => true %>
+        <%= f.label :origin %>
+        <%= f.text_field :origin, :placeholder => "Sydney", :required => true %>
+    </li>
+    <li>
+        <%= f.label :destination %>
+        <%= f.text_field :destination, :placeholder => "Melbourne", :required => true %>
     </li>
     <li>
         <%= f.label :date %>
