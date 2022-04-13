@@ -4,15 +4,15 @@
 
 <%= form_tag login_path do %>
     <ul>
-        <li>
-            <%= label_tag :email %>
-            <%= email_field_tag :email %>           
+        <li class="list-form">
+            <%= label_tag :email, nil, :class => "label-sign" %>
+            <%= email_field_tag :email, nil, :class => "input-sign" %>           
         </li>
-        <li>
-            <%= label_tag :password %>
-            <%= password_field_tag :password %>        
+        <li class="list-form">
+            <%= label_tag :password, nil, :class => "label-sign" %>
+            <%= password_field_tag :password, nil, :class => "input-sign" %>        
         </li>
-        <li>
+        <li class="list-form">
             <%= submit_tag "Log In" %>    
         </li>
     </ul>

@@ -112,15 +112,16 @@ nav {
     padding-left: 25px;
 }
 
-.sign input {
-    display: flex;
-    justify-content: space-between;
+
+label {
+    width: 200px;
 }
 
 .label-list {
     width: 200px;
     display: inline;
 }
+
 
 .home-nav {
     margin: 30px auto;
@@ -158,4 +159,60 @@ nav {
 
 .button_to {
     display: inline;
+
+}
+
+.comment {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 5px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.comments {
+    border: 3px solid blanchedalmond;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    padding: 20px;
+    width: 500px;
+    float: right;
+    
+}
+
+.comment-title {
+    text-align: center;
+    margin: 0;
+}
+
+.comment-user {
+    font-weight: bold;
+    color: black;
+    display: block;
+}
+
+.test {
+    width: 150px;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.list-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;    
+}
+
+.input-sign {
+    width: 200px;
+}
+
+.new-trip {
+    text-align: center;
 }

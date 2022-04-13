@@ -12,25 +12,25 @@
 
 <%= form_for @user do |f| %> 
     <ul>
-        <li>
-            <%= f.label :first_name, "First Name" %>
-            <%= f.text_field :first_name, :required => true  %>
+        <li class="list-form">
+            <%= f.label :first_name, "First Name:", :class => "label-sign" %>
+            <%= f.text_field :first_name, :required => true, :class => "input-sign"  %>
         </li>
-        <li>
-            <%= f.label :last_name, "Last Name" %>
-            <%= f.text_field :last_name, :required => true  %>
+        <li class="list-form">
+            <%= f.label :last_name, "Last Name:", :class => "label-sign" %>
+            <%= f.text_field :last_name, :required => true, :class => "input-sign"   %>
         </li>
-        <li>
-            <%= f.label :email %>
-            <%= f.email_field :email, :required => true  %>
+        <li class="list-form">
+            <%= f.label :email, "Email:", :class => "label-sign" %>
+            <%= f.email_field :email, :required => true, :class => "input-sign"   %>
         </li>
-        <li>
-            <%= f.label :password %>
-            <%= f.password_field :password %>
+        <li class="list-form">
+            <%= f.label :password, "Password:", :class => "label-sign" %>
+            <%= f.password_field :password, :required => true, :class => "input-sign"  %>
         </li>
-        <li>
-            <%= f.label :password_confirmation, "Password Confirmation" %>
-            <%= f.password_field :password_confirmation %>
+        <li class="list-form">
+            <%= f.label :password_confirmation, "Password Confirmation:", :class => "label-sign" %>
+            <%= f.password_field :password_confirmation, :required => true, :class => "input-sign"  %>
         </li>
 
         <%= f.submit "Sign Up!" %>
@@ -42,15 +42,15 @@
 
 <%= form_tag login_path do %>
     <ul>
-        <li>
-            <%= label_tag :email %>
-            <%= email_field_tag :email %>           
+        <li class="list-form">
+            <%= label_tag :email, nil, :class => "label-sign" %>
+            <%= email_field_tag :email, nil, :class => "input-sign" %>           
         </li>
-        <li>
-            <%= label_tag :password %>
-            <%= password_field_tag :password %>        
+        <li class="list-form">
+            <%= label_tag :password, nil, :class => "label-sign" %>
+            <%= password_field_tag :password, nil, :class => "input-sign" %>        
         </li>
-        <li>
+        <li class="list-form">
             <%= submit_tag "Log In" %>    
         </li>
     </ul>

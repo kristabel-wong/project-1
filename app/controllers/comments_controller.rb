@@ -11,7 +11,14 @@ class CommentsController < ApplicationController
     end
 
     def edit
+        @comment = Comment.find params[:format]
+        @trip = Trip.find params[:id]
+    end
+
+    def update
         @comment = Comment.find params[:id]
+        @comment.update comment_params
+        redirect_to trip_path(params[:comment][:trip_id])
     end
 
     def destroy

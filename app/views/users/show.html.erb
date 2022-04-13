@@ -25,7 +25,7 @@
     <% if @user.trips.present? %>
         <h1>Driver Trips & Bookings</h1>
             <h2>Upcoming Trips</h2>
-                <% @user.trips.each do |trip| %>
+                <% @user.trips.order(:date, :time).each do |trip| %> <!-- ordered by date then time -->
                     <% unless trip.date < Time.now %> <!-- this includes date and time -->
                         <%= link_to trip, :class => "button" do%>
                             <div class="trip-index"> 
@@ -43,7 +43,7 @@
                 <% end%>
 
             <h2>Upcoming Bookings</h2>
-                <% @user.trips.each do |trip| %>
+                <% @user.trips.order(:date, :time).each do |trip| %>
                     <% unless trip.date < Time.now %>
                         <% trip.bookings.each do |booking| %>
                             <%= link_to trip, :class => "button" do%>
