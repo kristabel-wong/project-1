@@ -6,7 +6,7 @@
         <% unless booking.trip.date < Time.now %>
         <%= link_to booking.trip, :class => "button" do %> 
             <div class="passenger" title="Click through to modify booking">
-                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.title %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
+                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.origin %> to <%= booking.trip.destination %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
                 <%= image_tag booking.trip.image, :class => 'thumb' %>
                 <ul>
                     <li> Trip date: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>    </li>
@@ -25,7 +25,7 @@
         <% unless booking.trip.date > Time.now %>
         <%= link_to booking.trip, :class => "button" do %> 
             <div class="passenger">
-                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.title %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
+                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.origin %> to <%= booking.trip.destination %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
                 <%= image_tag booking.trip.image, :class => 'thumb' %>
                 <ul>
                     <li> Trip date: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>    </li>

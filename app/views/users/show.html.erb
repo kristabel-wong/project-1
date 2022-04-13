@@ -6,15 +6,16 @@
     <% end %>
 <% end %>
 
-<ul>
-    <% if @user.image.present?%>
-        <%= image_tag @user.image, :class => 'icon' %>
-    <% end %>
-    <li>First Name: <%= @user.first_name %> </li>
+<% if @user.image.present?%>
+    <%= image_tag @user.image, :class => 'icon' %>
+<% end %>
+
+<ul class="profile-info">
+    <li class="list-profile"> <div class="other-list"> First Name: </div> <%= @user.first_name %> </li>
 
     <% if @current_user.id == @user.id%>
-        <li>Last Name: <%= @user.last_name %> </li>
-        <li>Email Address: <%= @user.email %></li>
+        <li class="list-profile"> <div class="other-list">Last Name: </div><%= @user.last_name %> </li>
+        <li class="list-profile"> <div class="other-list">Email Address: </div><%= @user.email %></li>
     <% end %>
 </ul>
 
@@ -29,7 +30,7 @@
                     <% unless trip.date < Time.now %> <!-- this includes date and time -->
                         <%= link_to trip, :class => "button" do%>
                             <div class="trip-index"> 
-                                <h3><%= trip.title %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3>
+                                <h3><%= trip.origin %> to <%= trip.destination %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3>
                                 <%= image_tag(trip.image, :class => 'thumb') %>
                                 <ul>
                                     <li>Passengers: <%= trip.bookings.count %> </li>
@@ -48,7 +49,7 @@
                         <% trip.bookings.each do |booking| %>
                             <%= link_to trip, :class => "button" do%>
                                 <div class="bookings">
-                                    <h3 class="show-bookings"> <%= booking.trip.title %> - <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %> </h3>
+                                    <h3 class="show-bookings"> <%= booking.trip.origin %> to <%= booking.trip.destination %> - <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %> </h3>
                                     <%= booking.user.first_name %> 
                                 </div>
                             <% end%>
@@ -64,7 +65,7 @@
                     <% unless trip.date > Time.now %> <!-- this includes date and time -->
                         <%= link_to trip, :class => "button" do%> 
                             <div class="trip-index"> 
-                                <h3><%= trip.title %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3> 
+                                <h3><%= trip.origin %> to <%= trip.destination %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3> 
                                 <%= image_tag(trip.image, :class => 'thumb') %>
                                 <ul>
                                     <li>Passengers: <%= trip.bookings.count %>  </li>
@@ -82,7 +83,7 @@
                             <% trip.bookings.each do |booking| %>
                                 <%= link_to trip, :class => "button" do%>
                                     <div class="bookings">
-                                        <h3 class="show-bookings"> <%= booking.trip.title %> - <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %> </h3>
+                                        <h3 class="show-bookings"> <%= booking.trip.origin %> to <%= booking.trip.destination %> - <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %> </h3>
                                         <%= booking.user.first_name %> 
                                     </div>
                                 <% end%>

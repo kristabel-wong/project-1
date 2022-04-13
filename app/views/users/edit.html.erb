@@ -2,29 +2,29 @@
 
 <%= form_for @user, :html => {:multipart => true } do |f| %> 
     <ul>
-        <li>
-            <div class="label-list"><%= f.label :first_name, "First Name" %></div>
-            <%= f.text_field :first_name  %>
+        <li class="list-form">
+            <%= f.label :first_name, "First Name:", :class => "label-sign" %>
+            <%= f.text_field :first_name, :class => "input-sign"   %>
         </li>
-        <li>
-            <%= f.label :last_name, "Last Name" %>
-            <%= f.text_field :last_name  %>
+        <li class="list-form">
+            <%= f.label :last_name, "Last Name:", :class => "label-sign" %>
+            <%= f.text_field :last_name, :class => "input-sign"   %>
         </li>
-        <li>
-            <%= f.label :email %>
-            <%= f.email_field :email  %>
+        <li class="list-form">
+            <%= f.label :email, "Email:", :class => "label-sign" %>
+            <%= f.email_field :email, :class => "input-sign"   %>
         </li>
-            <li>
-            <%= f.label :image %>
-            <%= f.cl_image_upload :image  %>
+        <li class="list-form">
+            <%= f.label :image, "Image:", :class => "label-sign"%>
+            <%= f.cl_image_upload :image, :class => "input-sign"   %>
         </li>
-        <li>
-            <%= f.label :password, "New Password" %>
-            <%= f.password_field :password %>
+        <li class="list-form">
+            <%= f.label :password, "New Password:" , :class => "label-sign"%>
+            <%= f.password_field :password, :class => "input-sign"  %>
         </li>
-        <li>
-            <%= f.label :password_confirmation, "Password Confirmation" %>
-            <%= f.password_field :password_confirmation %>
+        <li class="list-form">
+            <%= f.label :password_confirmation, "Password Confirmation:" , :class => "label-sign"%>
+            <%= f.password_field :password_confirmation, :class => "input-sign"  %>
         </li>
 
         <%= f.submit "Save" %>

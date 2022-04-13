@@ -194,9 +194,6 @@ label {
     display: block;
 }
 
-.test {
-    width: 150px;
-}
 
 form {
     width: 500px;
@@ -209,10 +206,37 @@ form {
     margin: 10px 0;    
 }
 
-.input-sign {
+.input-sign  {
     width: 200px;
+}
+
+.cloudinary-fileupload {
+    width: 208px;
 }
 
 .new-trip {
     text-align: center;
+}
+
+.other-list {
+    width: 130px;
+}
+
+.list-profile {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.profile-info {
+    padding: 0;
+}
+
+.button-container {
+    position: relative;
+}
+
+.button-comment {
+    margin: 50px 0;
+    position: absolute;
+    left: 40%;
 }

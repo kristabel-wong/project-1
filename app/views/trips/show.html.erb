@@ -48,9 +48,13 @@
                 </ul>
             <% end %>
         <% end %>
+        <% if @current_user.present?%>
+            <div class="button-container"> <div class="button-comment"><button><%= link_to 'Add Comment', new_comment_path(@trip), :class => 'button' %></button></div></div>
+        <% end %>
     </div>
     <% end %>
     
+
 
     <% if @trip.bookings && @trip.bookings.any? %>
     <div class="booked">
@@ -85,9 +89,7 @@
         <% end %>
     <% end %>
 
-    <% if @current_user.present?%>
-        <button><%= link_to 'Add Comment', new_comment_path(@trip), :class => 'button' %></button>
-    <% end %>
+
 
 </div>
 
