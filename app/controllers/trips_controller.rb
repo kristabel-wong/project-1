@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
     def index
-        @trips = Trip.order('date', 'time') # ordering the index page by date and then time
+        @trips = Trip.where('date > ?', DateTime.now).order('date', 'time') # ordering the index page by date and then time
     end
 
     def new

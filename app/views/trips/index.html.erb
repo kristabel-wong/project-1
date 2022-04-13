@@ -3,7 +3,6 @@
 
 
 <% @trips.each do |trip| %>
-<% unless trip.date < Time.now %>
     <%= link_to trip_path(trip), :class => "button" do %>
     <div class="trip-index">
         <h2 class="index"><%= trip.title %></h2> 
@@ -16,6 +15,5 @@
             </ul>
   
     </div>
-    <%end%>
     <% end %>
 <% end %>
