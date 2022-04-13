@@ -11,6 +11,7 @@ User.destroy_all
 
 u1 = User.create :first_name => 'Jane', :last_name => 'Doe', :email => 'janedoe@ga.co', :password => 'seed1', :image => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
 u2 = User.create :first_name => 'John', :last_name => 'Smith', :email => 'johnsmith@ga.co', :password => 'seed2', :image => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
+u3 = User.create :first_name =>'kris', :last_name => 'Wong', :email => 'kris@ga.co', :password => '1234', :image => 'https://c.tenor.com/Q3tO4AzyNLkAAAAC/crying-pepe-the-frog.gif'
 
 puts "#{ User.count } users."
 
@@ -18,6 +19,7 @@ Booking.destroy_all
 b1 = Booking.create :title => 'booking test 1'
 b2 = Booking.create :title => 'booking test 2'
 b3 = Booking.create :title => 'booking test 3'
+b4 = Booking.create :title => 'booking test 4'
 
 puts "#{ Booking.count } bookings."
 
@@ -36,6 +38,7 @@ u2.trips << t3 << t4
 
 u1.bookings << b1
 u2.bookings << b2
+u2.bookings << b3
 
 t1.bookings << b2
-t3.bookings << b1
+t3.bookings << b1 << b3
