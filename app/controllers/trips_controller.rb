@@ -8,9 +8,13 @@ class TripsController < ApplicationController
     end
 
     def create
-        trip = Trip.create trip_params # if @current_user.id == params[:user_id]
-        @current_user.trips << trip
-        redirect_to trip
+        trip = Trip.create trip_params unless params[:trip][:date] < Time.now # if @current_user.id == params[:user_id]
+        @current_user.trips << trip unless trip.nil?
+        if trip
+            redirect_to trip
+        else
+            redirect_to new_trip_path
+        end
     end
 
     def edit
@@ -25,7 +29,8 @@ class TripsController < ApplicationController
 
     def show
         @trip = Trip.find params[:id]
-
+        @remaining = @trip.seat - @trip.bookings.count
+        @booked = @trip.bookings.count
     end
 
     def destroy

@@ -4,7 +4,8 @@
     <title>Hitch-a-Ride</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+ <script src="http://maps.google.com/maps/api/js?key=AIzaSyD5geRY3vDQzzCdSI90M3EjH_3uauAJmhU" 
+          type="text/javascript"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= cloudinary_js_config %>
@@ -14,9 +15,9 @@
 
     <div class="container">
         <nav>
+            <%= link_to 'Home', root_path %>
             <%= link_to 'Find-A-Trip', trips_path %> 
             <% if @current_user.present?%>
-                <%= link_to 'Home', root_path %>
                 <%= link_to 'Profile', @current_user %>
                 <%= link_to 'Bookings', passenger_path  %>
                 <%= link_to 'Post-a-Ride', new_trip_path %>
@@ -28,5 +29,8 @@
         </nav>
         <%= yield %>
     </div>
+
+     
+
   </body>
 </html>

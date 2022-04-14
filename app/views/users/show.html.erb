@@ -6,8 +6,12 @@
     <% end %>
 <% end %>
 
-<% if @user.image.present?%>
+
+
+<% if @user.image.present? %>
     <%= cl_image_tag @user.image, :class => 'icon' %>
+<% else %>
+    <%= cl_image_tag 'casjrufggitrvg7s1vrm', :class => 'icon'%>
 <% end %>
 
 <ul class="profile-info">
@@ -31,7 +35,11 @@
                         <%= link_to trip, :class => "button" do%>
                             <div class="trip-index"> 
                                 <h3><%= trip.origin %> to <%= trip.destination %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3>
-                                <%= image_tag(trip.image, :class => 'thumb') %>
+                                <% if trip.image.present?  %>
+                                    <%= cl_image_tag(trip.image, :class => 'thumb') %>
+                                <% else %>
+                                    <%= cl_image_tag 'zpwkdm3rxbqpz3ljtd0a', :class => 'thumb' %>
+                                <% end %>
                                 <ul>
                                     <li>Passengers: <%= trip.bookings.count %> </li>
                                     <li>Price: <%= number_to_currency trip.price, precision: 0 %></li>
@@ -66,7 +74,7 @@
                         <%= link_to trip, :class => "button" do%> 
                             <div class="trip-index"> 
                                 <h3><%= trip.origin %> to <%= trip.destination %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3> 
-                                <%= image_tag(trip.image, :class => 'thumb') %>
+                                <%= cl_image_tag(trip.image, :class => 'thumb') %>
                                 <ul>
                                     <li>Passengers: <%= trip.bookings.count %>  </li>
                                     <li>Price: <%= number_to_currency trip.price, precision: 0 %></li>

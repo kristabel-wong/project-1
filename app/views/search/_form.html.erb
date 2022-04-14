@@ -1,0 +1,6 @@
+<%= search_form_for(@query, :url => search_path, :method => 'get', :class =>"search-form") do |f| %>
+    <div class="cover">
+        <%= f.search_field :origin_or_destination_or_user_first_name_i_cont_any, :placeholder => 'Search..', :class => "search" %>
+        <%= f.submit "Search" %>
+    </div>
+<% end %>

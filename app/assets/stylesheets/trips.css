@@ -154,12 +154,16 @@ label {
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     padding: 5px 20px;
-    width: 300px;
 }
 
 .button_to {
     display: inline;
+}
 
+.trip-add-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 35px;
 }
 
 .comment {
@@ -178,9 +182,8 @@ label {
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     padding: 20px;
-    width: 500px;
-    float: right;
-    
+    position: relative;
+    margin-bottom: 30px;
 }
 
 .comment-title {
@@ -192,6 +195,7 @@ label {
     font-weight: bold;
     color: black;
     display: block;
+    padding: 0 5px;
 }
 
 
@@ -231,12 +235,59 @@ form {
     padding: 0;
 }
 
-.button-container {
-    position: relative;
-}
+/* .button-container {
+    
+} */
 
 .button-comment {
     margin: 50px 0;
     position: absolute;
     left: 40%;
 }
+
+.button-bookings {
+    margin: 0 auto;
+    text-align: center;
+}
+
+table {
+    width: 40vw;
+    margin: 30px auto;
+    border: 3px solid rgb(219, 233, 239);
+    border-radius: 20px;
+    padding: 15px 0;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 120%;
+}
+
+.search {
+    width: 30vw;
+}
+
+.search-form {
+    width: 40vw;
+    text-align: center;
+}
+
+.search-title, .search-results {
+    text-align: center;
+}
+
+
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    width: 960px;
+    height: 600px;
+    margin: 70px auto;
+}
+
+

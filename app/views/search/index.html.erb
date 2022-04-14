@@ -1,0 +1,34 @@
+<h1 class="search-title">Search</h1>
+
+<h3 class="search-results"> <%= pluralize(@trips.count, "Result") %></h3>
+<%= render 'search/form' %>
+
+
+<div class="result-container">
+
+    <table>
+        <thead>
+            <tr>
+                <th><%= "From" %></th>
+                <th><%=  "To" %></th>
+                <th><%= sort_link(@query, :date,  "Date" ) %></th>
+                <th><%= sort_link(@query, :time,  "Time" ) %></th>
+                <th><%= sort_link(@query, :user_first_name, "User") %></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @trips.order(:date, :time).each do |trip| %>
+                <% unless trip.date < Time.now %>
+                    <tr>
+                        <td><%= trip.origin %></td>
+                        <td><%= trip.destination%></td>
+                        <td><%= trip.date.strftime('%e %b %Y')%></td>
+                        <td><%= trip.time.strftime('%l:%M %p')%></td>
+                        <td><%= trip.user.first_name %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</div>
