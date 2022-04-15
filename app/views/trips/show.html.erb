@@ -133,12 +133,20 @@
     ];
     
     let map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 7,
+      zoom: 8,
       center: new google.maps.LatLng(originLat, originLon),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
 
+    let originLL = new google.maps.LatLng(originLat, originLon)
+    let desintationLL = new google.maps.LatLng(destinationLat, destinationLon)
+
+    let bounds = new google.maps.LatLngBounds();
+    bounds.extend(originLL);
+    bounds.extend(desintationLL);
+    map.fitBounds(bounds);
+    
     let infowindow = new google.maps.InfoWindow();
 
     let marker, i;
