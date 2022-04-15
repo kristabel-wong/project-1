@@ -4,6 +4,13 @@
     font-family: 'Hind', sans-serif;
 }
 
+nav {
+    max-width: 50vw;
+    margin: 40px auto;
+
+}
+
+
 .home-page {
     background-image: url(/assets/jake-hills-TfJKSjoESc4-unsplash.jpg);
     background-size: 100%;
@@ -18,20 +25,21 @@
 
 .home-title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 300%;
+    top: 45%;
+    left: 45%;
+    transform: translate(-40%, -40%);
+    font-size: 330%;
     text-transform: uppercase;
 }
 
 .container {
     background-color: rgba(255, 255, 255, 0.8);
     max-width: 50vw;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 20px 50px; 
     border-radius: 20px;
 }
+
 
 .icon {
     height: 15em;
@@ -81,9 +89,9 @@ span {
 
 .bookings {
     background-color: blanchedalmond;
-    height: 60px;
+    height: 70px;
     margin: 20px 0;
-    padding: 20px 30px 0 30px;
+    padding: 10px 30px 0 30px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
 }
@@ -235,10 +243,6 @@ form {
     padding: 0;
 }
 
-/* .button-container {
-    
-} */
-
 .button-comment {
     margin: 50px 0;
     position: absolute;
@@ -250,21 +254,26 @@ form {
     text-align: center;
 }
 
-table {
-    width: 40vw;
-    margin: 30px auto;
-    border: 3px solid rgb(219, 233, 239);
-    border-radius: 20px;
-    padding: 15px 0;
-}
+/* --------- Search (button in scss) ------------- */
 
-td {
+.trip-headings {
+    /* border: 3px solid rgb(219, 233, 239); */
+    background-color:  rgb(219, 233, 239);
+    height: 50px;
+    margin: 10px auto;
+    padding: 20px 30px 0 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
     text-align: center;
 }
 
-th {
+
+.th {
     text-transform: uppercase;
     font-size: 120%;
+    font-weight: bold;
 }
 
 .search {
@@ -272,7 +281,7 @@ th {
 }
 
 .search-form {
-    width: 40vw;
+    width: 45vw;
     text-align: center;
 }
 
@@ -280,7 +289,52 @@ th {
     text-align: center;
 }
 
+.search-area {
+    position: relative;
+    height: 50px;
+    margin-bottom: 100px;
+    top: -20px;
+}
 
+
+.headings div {
+    width: 60px;
+}
+
+.result {
+    width: 45vw;
+    margin: 20px auto;
+}
+
+.trip-results {
+    /* background-color:  rgb(219, 233, 239); */
+    border: 3px solid rgb(219, 233, 239);
+    height: 50px;
+    margin: 10px auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
+    grid-column: white;
+    grid-column-gap: 3px;
+    text-align: center;
+    background-color: rgb(219, 233, 239);
+}
+
+.trip-results div {
+    background-color: white;
+    line-height: 50px;
+}
+
+.start-result {
+    border-radius: 20px 0 0 20px;
+}
+
+.end-result {
+    border-radius: 0 20px 20px 0;
+}
+
+/* ---------------------- Map --------------------- */
 
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */

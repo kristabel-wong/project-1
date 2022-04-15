@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+    before_action :check_for_login, only: [:new, :create]
+
     def index
         @trips = Trip.where('date > ?', DateTime.now).order('date', 'time') # ordering the index page by date and then time
     end
