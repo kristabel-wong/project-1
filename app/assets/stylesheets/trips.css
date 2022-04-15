@@ -6,10 +6,12 @@
 
 nav {
     max-width: 50vw;
+    min-width: 800px;
     margin: 40px auto;
 
 }
 
+/* ------------------------ Home page ------------------------- */
 
 .home-page {
     background-image: url(/assets/jake-hills-TfJKSjoESc4-unsplash.jpg);
@@ -34,16 +36,47 @@ nav {
 
 .container {
     background-color: rgba(255, 255, 255, 0.8);
-    max-width: 50vw;
+    width: 960px;
+    min-width: 800px;
     margin: 0 auto;
     padding: 20px 50px; 
     border-radius: 20px;
 }
 
 
+.home-nav {
+    margin: 30px auto;
+    max-width: 42vw;
+    min-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    height: 200px;
+    line-height: 200px;
+    text-transform: uppercase;
+}
+
+.find-a-trip {
+    background-color: blanchedalmond;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+}
+
+.post-a-trip {
+    background-color:  rgb(219, 233, 239);
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+}
+
+
+/* -------------------------------------------------------- */
+
 .icon {
-    height: 15em;
+    height: 12em;
     display: block;
+    border-radius: 200px;
 }
 
 .user-icon {
@@ -53,17 +86,157 @@ nav {
 
 .thumb {
     height: 10em;
-    float: right;
 }
+
+/* ------------- trip index page ------------------ */
 
 .trip-index {
     background-color:  rgb(219, 233, 239);
     height: 250px;
     margin: 20px 0;
-    padding: 20px 30px 0 30px;
+    padding: 10px 30px 0 30px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
 }
+
+.trip-index h3 {
+    margin: 0 0 5px 0;
+}
+
+.trip-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 1fr;
+}
+
+.trip-user-details {
+    text-align: center;
+}
+
+.trip-icon {
+    width: 128px;
+}
+
+.car-image {
+    width: 330px;
+    height: 160px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: -20px;
+}
+
+.trip-index-info ul {
+    margin: 0;
+}
+
+.trip-bookings-icons {
+    margin: 40px 20px 0 30px;
+}
+
+.trip-seat-icon {
+    width: 50px;
+}
+
+.trip-price {
+    text-align: center;
+}
+
+.trip-price h1 {
+    margin: 0;
+}
+
+span {
+    color: green;
+}
+
+.red {
+    color: red;
+    text-transform: uppercase;
+}
+
+/* ------------------ Trips Show Page --------------------- */
+
+.trip-show-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 850px;
+    margin: 0 auto;
+}
+
+.trip-show-driver {
+    padding-left: 50px;
+    width: 200px;
+    text-align: center;
+}
+
+.trip-show-car {
+    margin: 0 auto;
+}
+
+.trip-show-remaining {
+    margin: 0 0 20px 0;
+}
+
+.trip-add-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 35px;
+}
+
+.booked {
+    margin-bottom: 30px;
+    background-color: blanchedalmond;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    padding: 5px 20px;
+}
+
+.button_to {
+    display: inline;
+}
+
+.comment {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 5px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.comments {
+    border: 3px solid blanchedalmond;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    padding: 20px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.comment-title {
+    text-align: center;
+    margin: 0;
+}
+
+.comment-user {
+    font-weight: bold;
+    color: black;
+    display: block;
+    padding: 0 5px;
+}
+
+.trip-show-passengers {
+    text-align: center;
+}
+
+.delete-booking {
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* ------------------------------------------------------- */
 
 a:visited, a:hover, a {
     text-decoration: none;
@@ -74,9 +247,7 @@ a:visited, a:hover, a {
     display: block;
 }
 
-span {
-    color: green;
-}
+
 
 .passenger {
     background-color: blanchedalmond;
@@ -131,80 +302,8 @@ label {
 }
 
 
-.home-nav {
-    margin: 30px auto;
-    width: 40vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 50px;
-    height: 200px;
-    line-height: 200px;
-    text-transform: uppercase;
-}
 
-.find-a-trip {
-    background-color: blanchedalmond;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px rgb(236, 236, 236);
-}
 
-.post-a-trip {
-    background-color:  rgb(219, 233, 239);
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px rgb(236, 236, 236);
-}
-
-.booked {
-    margin-bottom: 30px;
-    background-color: blanchedalmond;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px rgb(236, 236, 236);
-    padding: 5px 20px;
-}
-
-.button_to {
-    display: inline;
-}
-
-.trip-add-info {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 35px;
-}
-
-.comment {
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    list-style: none;
-    padding: 0;
-    margin: 5px;
-    background-color: rgb(236, 236, 236);
-    border-radius: 20px;
-    padding: 10px;
-}
-
-.comments {
-    border: 3px solid blanchedalmond;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px rgb(236, 236, 236);
-    padding: 20px;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.comment-title {
-    text-align: center;
-    margin: 0;
-}
-
-.comment-user {
-    font-weight: bold;
-    color: black;
-    display: block;
-    padding: 0 5px;
-}
 
 
 form {
@@ -256,8 +355,7 @@ form {
 
 /* --------- Search (button in scss) ------------- */
 
-.trip-headings {
-    /* border: 3px solid rgb(219, 233, 239); */
+.search-headings {
     background-color:  rgb(219, 233, 239);
     height: 50px;
     margin: 10px auto;
@@ -268,7 +366,6 @@ form {
     grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
     text-align: center;
 }
-
 
 .th {
     text-transform: uppercase;
@@ -302,7 +399,8 @@ form {
 }
 
 .result {
-    width: 45vw;
+    max-width: 960px;
+    min-width: 800px;
     margin: 20px auto;
 }
 

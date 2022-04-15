@@ -3,60 +3,97 @@
 <% if @trip.date.present? %><%= @trip.date.strftime '%A, %B %e' %> <%end%> <% if @trip.time.present? %> at <%= @trip.time.strftime '%l:%M %p'%> <%end%> 
 </h3>
 
-<% if @trip.image.present? %>
-    <%= cl_image_tag @trip.image, :class => 'thumb' %>
-<% else %>
-    <%= cl_image_tag 'zpwkdm3rxbqpz3ljtd0a', :class => 'thumb' %>
-<% end %>
 
+<div class="trip-show-details">
 
-<ul>
-    <li>Price: <%= number_to_currency @trip.price, precision: 0 %></li>
-    <li>Car: <%= @trip.car_make %> <%= @trip.car_model %></li>
-    <li>Description: <% if @trip.description.present?%> <%= @trip.description %> <% end %></li>
-
-</ul>
-
-<h3>Booked:</h3>
-<% @trip.bookings.each do |booking| %>
-    <%= cl_image_tag booking.user.image, :class => 'user-icon'  %>
-<% end %>
-
-<% @remaining.times do  %>
-    <img src="/assets/seat-icon.png" alt="seats remaining">
-<% end %>
-
-
-<p>
-<% if @trip.user.present? %>
-    <% if @current_user.present?%>
-        <%= link_to user_path(@trip.user), :class => 'button' do %>
-            <p>Driver: <%= @trip.user.first_name %> 
-            <%= cl_image_tag @trip.user.image, :class => 'user-icon' %>
-            </p>
+    <div>
+        <% if @trip.user.present? %>
+            <% if @current_user.present?%>
+                <%= link_to user_path(@trip.user), :class => 'button' do %>
+                    <div class="trip-show-driver"> 
+                        <% if @trip.user.image.present? %>
+                            <%= cl_image_tag(@trip.user.image, :transformation=>[
+                                {:aspect_ratio=>"1.0", :gravity=>"face", :width=>0.3, :zoom=>0.7, :crop=>"thumb"},
+                                {:radius=>"max"}
+                                ]) %>
+                        <% else %>
+                            <%= cl_image_tag('casjrufggitrvg7s1vrm', :class => 'icon', :transformation=>[
+                                {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                        <% end %>
+                        <div class="trip-show-driver-name"><h3><%= @trip.user.first_name %> </h3> </div>
+                    </div>
+                <% end %>
+            <% else %>
+                <%= link_to new_user_path(@trip.user), :class => 'button' do %>  <!-- if you want to see user, you must sign up (if not signed in) -->
+                    <div> <%= cl_image_tag @trip.user.image, :class => 'user-icon' %>
+                     <h3><%= @trip.user.first_name %> </h3>
+                    
+                    </div>
+                <% end %>
+            <% end %>
         <% end %>
-    <% else %>
-        <%= link_to new_user_path(@trip.user), :class => 'button' do %>  <!-- if you want to see user, you must sign up (if not signed in) -->
-            <p>Driver: <%= @trip.user.first_name %> 
-            <%= cl_image_tag @trip.user.image, :class => 'user-icon' %>
-            </p>
+    
+    <ul>
+        <li>Price: <%= number_to_currency @trip.price, precision: 0 %></li>
+        <li>Car: <%= @trip.car_make %> <%= @trip.car_model %></li>
+        <% if @trip.description.present?%> <li>Description: <%= @trip.description %> </li> <% end %>
+
+    </ul>
+
+    </div>
+
+    <div class="trip-show-car">
+        <% if @trip.image.present? %>
+            <%= cl_image_tag @trip.image, :class => 'thumb' %>
+        <% else %>
+            <%= cl_image_tag 'zpwkdm3rxbqpz3ljtd0a', :class => 'thumb' %>
         <% end %>
+    </div>
+
+</div>
+
+<h3>Seats Available:</h3> <!-- Seat icons are replaced by user icons once they are booked -->
+
+<div class="trip-show-remaining">
+    <% @remaining.times do  %>
+        <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
     <% end %>
-<% end %>
-</p>
+</div>
+
 
 <div class="trip-add-info">
     
     <div class="booking-info">
         <div class="booked">
             <h2>Passengers</h2>
-                <ul>
-                    <% @trip.bookings.each do |booking| %> 
-                        <li> <%= booking.user.first_name %> <% if @current_user == booking.user && booking.trip.date > Date.today %> 
-                        <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :data => { :confirm => 'Are you sure you want to delete your booking?' } %> <% end %> 
-                        </li>
+
+        <div class="trip-show-bookings">
+            <div class="trip-show-passengers">
+                <% @trip.bookings.each do |booking| %>
+                    <% if booking.user.image.present? %>
+            
+                        <%= cl_image_tag(booking.user.image, :transformation=>[
+                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>60, :zoom=>0.7, :background =>"#fec", :crop=>"thumb"},
+                            {:radius=>"max"}]) %>
+
+                    <% else %>
+                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+
                     <% end %>
-                </ul>
+                    
+                <% end %>
+            </div>
+
+            <div class="delete-booking">
+                <% @trip.bookings.each do |booking| %> 
+                    <% if @current_user == booking.user && booking.trip.date > Date.today %> 
+                        <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :title => "Delete Booking", :data => { :confirm => 'Are you sure you want to delete your booking?' } %> 
+                    <% end %> 
+                <% end %>
+            </div>
+        </div>
+
         </div>
         <div class="button-container">
             <div class="button-bookings">
@@ -91,8 +128,8 @@
                     <li> <%= comment.content %>  </li>
                     <li>
                         <% if @current_user == comment.user %>
-                        <button class="edit"><%= link_to '✏️', edit_comment_path(comment.trip_id,comment.id), :class => 'button' %></button> 
-                        <%= button_to '🗑', comment_path(comment.trip_id,comment.id), :method => 'delete', :data => { :confirm => 'Are you sure?' }  %> 
+                        <button class="edit"><%= link_to '✏️', edit_comment_path(comment.trip_id,comment.id), :title => "Edit Comment", :class => 'button' %></button> 
+                        <%= button_to '🗑', comment_path(comment.trip_id,comment.id), :method => 'delete', :title => "Delete Comment", :data => { :confirm => 'Are you sure?' }  %> 
                         <% end%>
                     </li>
                 </ul>
@@ -133,12 +170,13 @@
     ];
     
     let map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
+      zoom: 7,
       center: new google.maps.LatLng(originLat, originLon),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-
+    // centering the map between two points:
+    
     let originLL = new google.maps.LatLng(originLat, originLon)
     let desintationLL = new google.maps.LatLng(destinationLat, destinationLon)
 

@@ -14,7 +14,10 @@
   {:radius=>"max"}
   ]) %>
 <% else %>
-    <%= cl_image_tag('casjrufggitrvg7s1vrm', :class => 'icon')%>
+    <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'icon', :transformation=>[
+        {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62},
+        {}
+        ])%>
 <% end %>
 
 <ul class="profile-info">
@@ -37,7 +40,7 @@
                     <% unless trip.date < Time.now %> <!-- this includes date and time -->
                         <%= link_to trip, :class => "button" do%>
                             <div class="trip-index"> 
-                                <h3><%= trip.origin %> to <%= trip.destination %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - FULLY BOOKED <% end %> </h3>
+                                <h3><%= trip.origin %> to <%= trip.destination %> - <%= trip.date.strftime '%A, %B %e' %> at <%= trip.time.strftime '%l:%M %p' %> <% if trip.bookings.count == trip.seat%> - <span>FULLY BOOKED</span> <% end %> </h3>
                                 <% if trip.image.present?  %>
                                     <%= cl_image_tag(trip.image, :class => 'thumb') %>
                                 <% else %>
