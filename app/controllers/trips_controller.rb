@@ -13,8 +13,10 @@ class TripsController < ApplicationController
         trip = Trip.create trip_params unless params[:trip][:date] < Time.now # if @current_user.id == params[:user_id]
         @current_user.trips << trip unless trip.nil?
         if trip
+            flash[:message] = "Success! Trip Created 🚗 "
             redirect_to trip
         else
+            flash[:trip_error] = " 🚫 Error: Invalid Date "
             redirect_to new_trip_path
         end
     end

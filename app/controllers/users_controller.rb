@@ -7,6 +7,7 @@ class UsersController < ApplicationController
         @user = User.new user_params
         if @user.save
             session[:user_id] = @user.id
+            flash[:message] = " ✔️ Thank you for signing up!"
             redirect_to root_path
         else
             render :new
@@ -33,6 +34,7 @@ class UsersController < ApplicationController
         @user.update_attributes(user_params)
         @user.update user_params
         @user.save
+        flash[:update] = " ✔️ Your profile has been updated! "
         redirect_to user_path
     end
 

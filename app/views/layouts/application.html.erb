@@ -32,10 +32,29 @@
     </div>
     <div class="container">
 
+    <% if flash[:message].present? %>
+
+        <div class="flash">
+            <%= flash[:message] %>
+        </div>
+
+    <% elsif flash[:trip_error].present? %>
+
+        <div class="flash error">
+            <%= flash[:trip_error] %>
+        </div>
+
+    <% elsif flash[:update].present? %>
+
+        <div class="flash update">
+            <%= flash[:update] %>
+        </div>
+
+    <% end %>
+
         <%= yield %>
     </div>
 
-     
 
   </body>
 </html>

@@ -11,6 +11,29 @@ nav {
 
 }
 
+a:visited, a:hover, a {
+    text-decoration: none;
+    color: black;
+}
+
+/* ----------------- flash messages -------------------------- */
+
+.flash {
+    background-color: rgb(204, 245, 203);
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 50px;
+    margin: 10px 0px;
+}
+
+.error {
+    background-color: rgb(247, 207, 202);
+}
+
+.update {
+    background-color: #fcf3cd;
+}
+
 /* ------------------------ Home page ------------------------- */
 
 .home-page {
@@ -169,15 +192,45 @@ span {
     text-align: center;
 }
 
+
 .trip-show-car {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trip-show-info {
+    width: 850px;
     margin: 0 auto;
 }
 
-.trip-show-remaining {
-    margin: 0 0 20px 0;
+.description span {
+    font-weight: bold;
+    color: black;
 }
 
-.trip-add-info {
+.trip-show-seats {
+    width: 600px;
+}
+
+.trip-seat-remaining {
+    width: 60px;
+}
+
+.trip-show-remaining, .trip-show-price  {
+    display: inline-block;
+}
+
+.trip-show-price {
+    height: 69px;
+    position: relative;
+    top: -25px;
+}
+
+.trip-show-price h3 {
+    margin: 0 0 0 20px;
+}
+
+.trip-additional-info {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-column-gap: 35px;
@@ -189,6 +242,7 @@ span {
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     padding: 5px 20px;
+    text-align: center;
 }
 
 .button_to {
@@ -227,8 +281,12 @@ span {
     padding: 0 5px;
 }
 
-.trip-show-passengers {
+.trip-show-user {
     text-align: center;
+}
+
+.trip-show-bookings {
+    padding-bottom: 10px;
 }
 
 .delete-booking {
@@ -236,18 +294,26 @@ span {
     text-align: center;
 }
 
+/* ---------------------- User Page --------------------------- */
+
+.trip-container-user-page {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.user-page {
+    margin-top: 20px; 
+}
+
 /* ------------------------------------------------------- */
 
-a:visited, a:hover, a {
-    text-decoration: none;
-    color: black;
-}
+
 
 .description {
     display: block;
 }
 
-
+/* ---------------------- Passenger Page --------------------------- */
 
 .passenger {
     background-color: blanchedalmond;
@@ -256,6 +322,10 @@ a:visited, a:hover, a {
     padding: 20px 30px 0 30px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
+}
+
+.passenger h3 {
+    margin: 0;
 }
 
 .bookings {

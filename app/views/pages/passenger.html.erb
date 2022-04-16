@@ -2,37 +2,147 @@
 
 <% if @current_user.bookings.present? %>
     <h2>Upcoming Passenger Trips</h2>
-        <% @current_user.bookings.each do |booking| %>
+
+
+    <% @current_user.bookings.each do |booking| %>
         <% unless booking.trip.date < Time.now %>
         <%= link_to booking.trip, :class => "button" do %> 
             <div class="passenger" title="Click through to modify booking">
-                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.origin %> to <%= booking.trip.destination %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
-                <%= cl_image_tag booking.trip.image, :class => 'thumb' %>
-                <ul>
-                    <li> Trip date: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>    </li>
-                    <li> Driver name: <%= booking.trip.user.first_name %></li>
+                <h2 class="index"><%= booking.trip.origin %> to <%= booking.trip.destination %></h2>
+
+                <h3>Leaving: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>  </h3> 
+
+                <div class="trip-container">
+                    <div class="trip-user-details">
+                    <% if booking.trip.user.image.present? %>
+                        <%= cl_image_tag(booking.trip.user.image, :transformation=>[
+                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
+                            {:radius=>"max"}]) %>
+                    <% else %>
+                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                    <% end %>
+                    <h3> <%= booking.trip.user.first_name %> </h3>
+                </div>
+
+                <div class="trip-index-info">
+                    <ul>
+                        <li>Car: <%= booking.trip.car_make %> <%= booking.trip.car_model %></li>
+                        <li>Spots booked: </li>
+                    </ul>
+
+                    <div class="trip-bookings-icons">
+                        <% booking.trip.bookings.each do |booking| %>
+                            <% if booking.user.image.present?%>
+                                <%= cl_image_tag(booking.user.image, :transformation=>[
+                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
+                                    {:radius=>"max"}]) %>
+                            <% else %>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                            <% end %>
+                        <% end%>
+
+                        <% (booking.trip.seat - booking.trip.bookings.count).times do %>
+                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
+                        <% end %>
+                    </div>
                     
-                </ul>
-                <!-- <%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :data => { :confirm => 'Are you sure you want to delete your booking?' } %> -->
+                </div>
+
+                 <div class="trip-price">
+                    <h1><%= number_to_currency booking.trip.price, precision: 0 %></h1>
+                    
+                </div>
+
+                <div class="car-image">
+                    <% if booking.trip.image.present? %>
+                        <%= cl_image_tag booking.trip.image, :class => 'thumb' %>
+                    <% else %>
+                        <%= cl_image_tag('zpwkdm3rxbqpz3ljtd0a', :width=>275, :height=>115, :crop=>"fill", :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>30, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>95}
+                        ]) %>
+                    <% end %>
+                </div>
+
+
+                </div>
             </div>
             <% end %>
           
         <% end %>
         <% end %>
 
+
+        
+
     <h2>Your Past Trips</h2>
         <% @current_user.bookings.each do |booking| %>
         <% unless booking.trip.date > Time.now %>
         <%= link_to booking.trip, :class => "button" do %> 
-            <div class="passenger">
-                <h3> <%= booking.trip.user.first_name %> - <%= booking.trip.origin %> to <%= booking.trip.destination %> <% if booking.trip.date < Date.today %> - EXPIRED <% end %></h3>
-                <%= cl_image_tag booking.trip.image, :class => 'thumb' %>
-                <ul>
-                    <li> Trip date: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>    </li>
-                    <li> Driver name: <%= booking.trip.user.first_name %></li>
+            <div class="passenger" title="Click through to modify booking">
+                <h2 class="index"><%= booking.trip.origin %> to <%= booking.trip.destination %></h2>
+
+                <h3>Leaving: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>  </h3> 
+
+                <div class="trip-container">
+                    <div class="trip-user-details">
+                    <% if booking.trip.user.image.present? %>
+                        <%= cl_image_tag(booking.trip.user.image, :transformation=>[
+                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
+                            {:radius=>"max"}]) %>
+                    <% else %>
+                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                    <% end %>
+                    <h3> <%= booking.trip.user.first_name %> </h3>
+                </div>
+
+                <div class="trip-index-info">
+                    <ul>
+                        <li>Car: <%= booking.trip.car_make %> <%= booking.trip.car_model %></li>
+                        <li>Spots booked: </li>
+                    </ul>
+
+                    <div class="trip-bookings-icons">
+                        <% booking.trip.bookings.each do |booking| %>
+                            <% if booking.user.image.present?%>
+                                <%= cl_image_tag(booking.user.image, :transformation=>[
+                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
+                                    {:radius=>"max"}]) %>
+                            <% else %>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                            <% end %>
+                        <% end%>
+
+                        <% (booking.trip.seat - booking.trip.bookings.count).times do %>
+                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
+                        <% end %>
+                    </div>
                     
-                </ul>
+                </div>
+
+                 <div class="trip-price">
+                    <h1><%= number_to_currency booking.trip.price, precision: 0 %></h1>
+                    
+                </div>
+
+                <div class="car-image">
+                    <% if booking.trip.image.present? %>
+                        <%= cl_image_tag booking.trip.image, :class => 'thumb' %>
+                    <% else %>
+                        <%= cl_image_tag('zpwkdm3rxbqpz3ljtd0a', :width=>275, :height=>115, :crop=>"fill", :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>30, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>95}
+                        ]) %>
+                    <% end %>
+                </div>
+
+
+                </div>
             </div>
+            
+          
         <% end %>
         <% end %>
         <% end %>

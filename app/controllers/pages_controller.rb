@@ -4,5 +4,6 @@ class PagesController < ApplicationController
 
     def index
         render :passenger
+       
     end 
   end
