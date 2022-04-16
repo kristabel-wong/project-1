@@ -1,11 +1,14 @@
-<h1>Edit Comment</h1>
+<h1 class='comment-heading'>Edit Comment</h1>
 
 <%= form_for @comment do |f| %>
-    <%= f.label :content, "Comment", :value => @comment.content %>
+
     <%= f.text_area :content, size: "50x5"  %>
   
     <%= f.hidden_field :trip_id, value: @trip.id %>
     <%= f.hidden_field :user_id, value: @current_user.id %>
 
-    <%= f.submit %>
+    <div class="create-comment">
+        <%= f.submit %>
+    </div>
+    
 <% end %>

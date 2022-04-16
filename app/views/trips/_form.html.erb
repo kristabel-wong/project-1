@@ -34,8 +34,8 @@
         <%= f.text_field :car_model, :placeholder => "Corolla", :class => "input-sign" %>
     </li>
     <li class="list-form">
-        <%= f.label "Picture of your Car", :class => "label-sign"  %>
-        <%= f.url_field :image, :placeholder => "http://...", :class => "input-sign" %> 
+        <%= f.label :image, "Picture of your Car", :class => "label-sign"  %>
+        <%= f.cl_image_upload :image, :placeholder => "http://...", :class => "input-sign" %> 
     </li>
     <li class="list-form">
         <%= f.label :description, :class => 'description label-sign' %>

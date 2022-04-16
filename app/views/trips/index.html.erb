@@ -13,12 +13,12 @@
                 
                 <div class="trip-user-details">
                     <% if trip.user.image.present? %>
-                        <%= cl_image_tag(trip.user.image, :transformation=>[
+                        <%= cl_image_tag(trip.user.image, :class => 'default-trip-user', :transformation=>[
                             {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :background =>"#DBE9EF", :crop=>"thumb"},
                             {:radius=>"max"}]) %>
                     <% else %>
-                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                            {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon default-trip-user', :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
                     <% end %>
                     <h3> <%= trip.user.first_name %> </h3>
                 </div>
@@ -30,20 +30,25 @@
                     </ul>
 
                     <div class="trip-bookings-icons">
-                        <% trip.bookings.each do |booking| %>
-                            <% if booking.user.image.present? %>
-                                <%= cl_image_tag(booking.user.image, :transformation=>[
-                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#DBE9EF", :crop=>"thumb"},
-                                    {:radius=>"max"}]) %>
-                            <% else %>
-                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                                    {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                        <% unless trip.seat > 4 %> <!-- only show if the number of seats is 4 or less -->
+                            <% trip.bookings.each do |booking| %>
+                                <% if booking.user.image.present? %>
+                                    <%= cl_image_tag(booking.user.image, :class => 'default', :transformation=>[
+                                        {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#DBE9EF", :crop=>"thumb"},
+                                        {:radius=>"max"}]) %>
+                                <% else %>
+                                    <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon default', :transformation=>[
+                                        {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
+                                <% end %>
                             <% end %>
-                        <% end %>
 
-                        <% (trip.seat - trip.bookings.count).times do  %>
-                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
-                    <% end %>
+                            <% (trip.seat - trip.bookings.count).times do  %>
+                                <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                            <% end %>
+
+                        <% else %>
+                            <p> <strong> Please click into booking to see more details </strong> </p> <!-- can't fit more than 4 icons on the trip listing -->
+                        <% end %>
                     </div>
                 </div>
 

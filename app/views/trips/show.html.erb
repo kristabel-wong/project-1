@@ -1,103 +1,116 @@
-<h1><%= @trip.origin %> to <%= @trip.destination %><% if @trip.date < Time.now %> - EXPIRED <% end %> </h1> 
-<h3>
-<% if @trip.date.present? %><%= @trip.date.strftime '%A, %B %e' %> <%end%> <% if @trip.time.present? %> at <%= @trip.time.strftime '%l:%M %p'%> <%end%> 
-</h3>
+<div class="trip-user-info">
+
+    <h1><%= @trip.origin %> to <%= @trip.destination %><% if @trip.date < Time.now %> - EXPIRED <% end %> </h1> 
+    <h3>
+    <% if @trip.date.present? %><%= @trip.date.strftime '%A, %B %e, %Y' %> <%end%> 
+    <% if @trip.time.present? %> at <%= @trip.time.strftime '%l:%M %p'%> <%end%> 
+    </h3>
 
 
-<div class="trip-show-details">
+    <div class="trip-show-details">
 
-    <div>
-        <% if @trip.user.present? %>
-            <% if @current_user.present?%>
-                <%= link_to user_path(@trip.user), :class => 'button' do %>
-                    <div class="trip-show-driver"> 
-                        <% if @trip.user.image.present? %>
-                            <%= cl_image_tag(@trip.user.image, :transformation=>[
-                                {:aspect_ratio=>"1.0", :gravity=>"face", :width=>0.3, :zoom=>0.7, :crop=>"thumb"},
-                                {:radius=>"max"}
-                                ]) %>
-                        <% else %>
-                            <%= cl_image_tag('casjrufggitrvg7s1vrm', :class => 'icon', :transformation=>[
-                                {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
-                        <% end %>
-                        <div class="trip-show-driver-name"><h3><%= @trip.user.first_name %> </h3> </div>
-                    </div>
-                <% end %>
-            <% else %>
-                <%= link_to new_user_path(@trip.user), :class => 'button' do %>  <!-- if you want to see user, you must sign up (if not signed in) -->
-                    <div> <%= cl_image_tag @trip.user.image, :class => 'user-icon' %>
-                     <h3><%= @trip.user.first_name %> </h3>
-                    
-                    </div>
-                <% end %>
-            <% end %>
-        <% end %>
-
-    </div>
-
-    <div class="trip-show-car">
-        <% if @trip.image.present? %>
-            <%= cl_image_tag @trip.image, :class => 'thumb' %>
-        <% else %> 
-            <%= cl_image_tag('zpwkdm3rxbqpz3ljtd0a', :width=>275, :height=>115, :crop=>"fill", :transformation=>[
-                    {:overlay=>{:font_family=>"Hind", :font_size=>30, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>95}
-                ]) %>
-        <% end %>
-
-        <div class="trip-show-driver-name"><h3>
-        <% if @trip.car_make.present? || @trip.car_model.present?%> 
-            <%= @trip.car_make %> <%= @trip.car_model %>
-        <% end %>
-        </div>
-
-    </div>
-
-</div>
-
-<div class="trip-show-info">
-    <div class="description">
-        <% if @trip.description.present?%> <span> Description: </span> " <em> <%= @trip.description %> </em>" <% end %>
-    </div>
-
-    <h3>Seats Available:</h3> <!-- Seat icons are replaced by user icons once they are booked -->
-
-    <div class="trip-show-seats">
-        
-        <div class="trip-show-remaining">
-            <% @trip.bookings.each do |booking| %>
-                        <% if booking.user.image.present? %>
-                
-                            <%= cl_image_tag(booking.user.image, :transformation=>[
-                                {:aspect_ratio=>"1.0", :gravity=>"face", :width=>60, :zoom=>0.7, :background =>"#fff", :crop=>"thumb"},
-                                {:radius=>"max"}]) %>
-
-                        <% else %>
-                            <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                                {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
-
-                        <% end %>
-                        
+        <div>
+            <% if @trip.user.present? %>
+                <% if @current_user.present?%>
+                    <%= link_to user_path(@trip.user), :class => 'button' do %>
+                        <div class="trip-show-driver"> 
+                            <% if @trip.user.image.present? %>
+                                <%= cl_image_tag(@trip.user.image, :class => 'user-profile-image',:transformation=>[
+                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>0.3, :zoom=>0.7, :crop=>"thumb"},
+                                    {:radius=>"max"}
+                                    ]) %>
+                            <% else %>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'icon', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
+                            <% end %>
+                            <div class="trip-show-driver-name"><h3><%= @trip.user.first_name %> </h3> </div>
+                        </div>
                     <% end %>
-            <% @remaining.times do  %>
-                <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-remaining') %>
+                <% else %>
+                    <%= link_to new_user_path(@trip.user), :class => 'button' do %>  <!-- if you want to see user, you must sign up (if not signed in)  -->
+                        <div class="trip-show-driver"> 
+                            <% if @trip.user.image.present? %>
+                                <%= cl_image_tag(@trip.user.image, :class => 'user-profile-image',:transformation=>[
+                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>0.3, :zoom=>0.7, :crop=>"thumb"},
+                                    {:radius=>"max"}
+                                    ]) %>
+                            <% else %>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'icon', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
+                            <% end %>
+                            <div class="trip-show-driver-name"><h3><%= @trip.user.first_name %> </h3> </div>
+                        </div>
+                    <% end %> 
+                <% end %>
             <% end %>
+
         </div>
 
-        <div class="trip-show-price">
-            <h3>
-                <% if @remaining == 0 %> 
-                    <span> FULLY BOOKED </span>
-                <% elsif @remaining == 1 %>
-                    <span class="red"><%= pluralize(@remaining, "seat") %> left! </span>
-                <% else %>
-                    <%= pluralize(@remaining, "seat") %> left
-                <% end %>   
-                    &nbsp;•&nbsp; <%= number_to_currency @trip.price, precision: 0 %> per seat 
-            </h3>
+        <div class="trip-show-car">
+            <% if @trip.image.present? %>
+                <%= cl_image_tag @trip.image, :class => 'thumb' %>
+            <% else %> 
+                <%= cl_image_tag('zpwkdm3rxbqpz3ljtd0a', :width=>275, :height=>115, :crop=>"fill", :transformation=>[
+                        {:overlay=>{:font_family=>"Hind", :font_size=>30, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>95}
+                    ]) %>
+            <% end %>
+
+            <div class="trip-show-driver-name"><h3>
+            <% if @trip.car_make.present? || @trip.car_model.present?%> 
+                <%= @trip.car_make %> <%= @trip.car_model %>
+            <% end %>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="trip-show-info">
+        <div class="description">
+            <% if @trip.description.present?%> <span> Description: </span> " <em> <%= @trip.description %> </em>" <% end %>
+        </div>
+
+        <h3>Seats Available:</h3> <!-- Seat icons are replaced by user icons once they are booked -->
+
+        <div class="trip-show-seats">
+            
+            <div class="trip-show-remaining">
+                <% @trip.bookings.each do |booking| %>
+                            <% if booking.user.image.present? %>
+                    
+                                <%= cl_image_tag(booking.user.image, :class => 'trip-seat-icon-show-default', :transformation=>[
+                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>60, :zoom=>0.7,  :crop=>"thumb"},
+                                    {:radius=>"max"}]) %>
+
+                            <% else %>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon-show-default', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fff"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
+
+                            <% end %>
+                            
+                        <% end %>
+                <% @remaining.times do  %>
+                    <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-remaining') %>
+                <% end %>
+            </div>
+
+            <div class="trip-show-price">
+                <h3>
+                    <% if @remaining == 0 %> 
+                        <span> FULLY BOOKED </span>
+                    <% elsif @remaining == 1 %>
+                        <span class="red"><%= pluralize(@remaining, "seat") %> left! </span>
+                    <% else %>
+                        <%= pluralize(@remaining, "seat") %> left
+                    <% end %>   
+                        &nbsp;•&nbsp; <%= number_to_currency @trip.price, precision: 0 %> per seat 
+                </h3>
+            </div>
         </div>
     </div>
-</div>
 
+
+</div>
 
 <div class="trip-additional-info">
     
@@ -116,8 +129,8 @@
                                 {:radius=>"max"}]) %>
 
                         <% else %>
-                            <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                                {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                            <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon-show-default', :transformation=>[
+                                {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
 
                         <% end %>
                     <% end %>    
@@ -162,29 +175,32 @@
     </div>
 
     <% if @current_user.present? %>
-    <div class="comments">
-        <div>
-        <h2 class="comment-title" title="Comments are viewable to all users">Comments</h2>
-        <% if @trip.comments.length != 0  %>
-            <% @trip.comments.order(:created_at).reverse_order.each do |comment| %>
-                <ul class="comment"> 
-                    <li title=<%= comment.created_at.strftime "%e %b %y - %l:%M %p" %>> <span class="comment-user"><%= comment.user.first_name %>:</span> </li>
-                    <li> <%= comment.content %>  </li>
-                    <li>
-                        <% if @current_user == comment.user %>
-                        <button class="edit"><%= link_to '✏️', edit_comment_path(comment.trip_id,comment.id), :title => "Edit Comment", :class => 'button' %></button> 
-                        <%= button_to '🗑', comment_path(comment.trip_id,comment.id), :method => 'delete', :title => "Delete Comment", :data => { :confirm => 'Are you sure?' }  %> 
-                        <% end%>
-                    </li>
-                </ul>
+    <div class="comments-container">
+        <div class="comments">
+            <div>
+            <h2 class="comment-title" title="Comments are viewable to all users">Comments</h2>
+            <% if @trip.comments.length != 0  %>
+                <% @trip.comments.order(:created_at).reverse_order.each do |comment| %>
+                    <ul class="comment"> 
+                        <li title=<%= comment.created_at.strftime "%e %b %y - %l:%M %p" %>> <span class="comment-user"><%= comment.user.first_name %>:</span> </li>
+                        <li> <%= comment.content %>  </li>
+                        <li>
+                            <% if @current_user == comment.user %>
+                            <button class="edit"><%= link_to '✏️', edit_comment_path(comment.trip_id,comment.id), :title => "Edit Comment", :class => 'button' %></button> 
+                            <%= button_to '🗑', comment_path(comment.trip_id,comment.id), :method => 'delete', :title => "Delete Comment", :data => { :confirm => 'Are you sure?' }  %> 
+                            <% end%>
+                        </li>
+                    </ul>
+                <% end %>
             <% end %>
+            </div>
+    
         <% end %>
         </div>
+        
         <% if @current_user.present?%>
             <div class="button-comment"><button><%= link_to 'Add Comment', new_comment_path(@trip) %></button></div>
         <% end %>
-  
-    <% end %>
     </div>
 
 </div>
@@ -199,6 +215,8 @@
 
 
 <div id="map"></div>
+
+
 
 <script type="text/javascript">
     let origin = document.getElementById("origin").innerText
@@ -247,3 +265,4 @@
       })(marker, i));
     }
   </script>
+

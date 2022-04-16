@@ -10,17 +10,17 @@
             <div class="passenger" title="Click through to modify booking">
                 <h2 class="index"><%= booking.trip.origin %> to <%= booking.trip.destination %></h2>
 
-                <h3>Leaving: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>  </h3> 
+                <h3>Leaving: <%= booking.trip.date.strftime '%A, %B %e, %Y' %> at <%= booking.trip.time.strftime '%l:%M %p' %>  </h3> 
 
                 <div class="trip-container">
                     <div class="trip-user-details">
                     <% if booking.trip.user.image.present? %>
-                        <%= cl_image_tag(booking.trip.user.image, :transformation=>[
-                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
+                        <%= cl_image_tag(booking.trip.user.image, :class => 'default-trip-user', :transformation=>[
+                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :crop=>"thumb"},
                             {:radius=>"max"}]) %>
                     <% else %>
-                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                            {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon default-trip-user', :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>50, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
                     <% end %>
                     <h3> <%= booking.trip.user.first_name %> </h3>
                 </div>
@@ -32,20 +32,25 @@
                     </ul>
 
                     <div class="trip-bookings-icons">
+                    <% unless booking.trip.seat > 4 %>
                         <% booking.trip.bookings.each do |booking| %>
                             <% if booking.user.image.present?%>
-                                <%= cl_image_tag(booking.user.image, :transformation=>[
+                                <%= cl_image_tag(booking.user.image, :class => 'default', :transformation=>[
                                     {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
                                     {:radius=>"max"}]) %>
                             <% else %>
-                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                                    {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon default', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
                             <% end %>
                         <% end%>
 
                         <% (booking.trip.seat - booking.trip.bookings.count).times do %>
                             <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
                         <% end %>
+
+                    <% else %>
+                        <p> <strong> Please click into booking to see more details </strong> </p> <!-- can't fit more than 4 icons on the trip listing -->
+                    <% end %>
                     </div>
                     
                 </div>
@@ -83,17 +88,17 @@
             <div class="passenger" title="Click through to modify booking">
                 <h2 class="index"><%= booking.trip.origin %> to <%= booking.trip.destination %></h2>
 
-                <h3>Leaving: <%= booking.trip.date.strftime '%A, %B %e' %> at <%= booking.trip.time.strftime '%l:%M %p' %>  </h3> 
+                <h3>Leaving: <%= booking.trip.date.strftime '%A, %B %e, %Y' %> at <%= booking.trip.time.strftime '%l:%M %p' %>  </h3> 
 
                 <div class="trip-container">
                     <div class="trip-user-details">
                     <% if booking.trip.user.image.present? %>
-                        <%= cl_image_tag(booking.trip.user.image, :transformation=>[
-                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
+                        <%= cl_image_tag(booking.trip.user.image, :class => 'default-trip-user', :transformation=>[
+                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :crop=>"thumb"},
                             {:radius=>"max"}]) %>
                     <% else %>
-                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                            {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                        <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon default-trip-user', :transformation=>[
+                            {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
                     <% end %>
                     <h3> <%= booking.trip.user.first_name %> </h3>
                 </div>
@@ -105,20 +110,25 @@
                     </ul>
 
                     <div class="trip-bookings-icons">
+                    <% unless booking.trip.seat > 4 %>
                         <% booking.trip.bookings.each do |booking| %>
                             <% if booking.user.image.present?%>
-                                <%= cl_image_tag(booking.user.image, :transformation=>[
+                                <%= cl_image_tag(booking.user.image, :class => 'default', :transformation=>[
                                     {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
                                     {:radius=>"max"}]) %>
                             <% else %>
-                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon', :transformation=>[
-                                    {:overlay=>{:font_family=>"Hind", :font_size=>23, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>62}])%>
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon default', :transformation=>[
+                                    {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
                             <% end %>
                         <% end%>
 
                         <% (booking.trip.seat - booking.trip.bookings.count).times do %>
-                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
+                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
                         <% end %>
+
+                    <% else %>
+                        <p> <strong> Please click into booking to see more details </strong> </p> <!-- can't fit more than 4 icons on the trip listing -->
+                    <% end %>                    
                     </div>
                     
                 </div>
@@ -133,7 +143,7 @@
                         <%= cl_image_tag booking.trip.image, :class => 'thumb' %>
                     <% else %>
                         <%= cl_image_tag('zpwkdm3rxbqpz3ljtd0a', :width=>275, :height=>115, :crop=>"fill", :transformation=>[
-                            {:overlay=>{:font_family=>"Hind", :font_size=>30, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>95}
+                            {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}
                         ]) %>
                     <% end %>
                 </div>
