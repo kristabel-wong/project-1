@@ -1,20 +1,27 @@
+
 <div class="sign">
 
-<h1>Sign In to Hitch-a-Ride</h1>
+    <h1>Sign In to Hitch-a-Ride</h1>
 
-<%= form_tag login_path do %>
-    <ul>
-        <li class="list-form">
-            <%= label_tag :email, nil, :class => "label-sign" %>
-            <%= email_field_tag :email, nil, :class => "input-sign" %>           
-        </li>
-        <li class="list-form">
-            <%= label_tag :password, nil, :class => "label-sign" %>
-            <%= password_field_tag :password, nil, :class => "input-sign" %>        
-        </li>
-        <li class="list-form">
-            <%= submit_tag "Log In" %>    
-        </li>
-    </ul>
-<% end %>
+    <%= form_tag login_path do %>
+        <ul>
+            <li class="list-form">
+                <%= label_tag :email, nil, :class => "label-sign" %>
+                <%= email_field_tag :email, nil, :class => "input-sign" %>           
+            </li>
+            <li class="list-form">
+                <%= label_tag :password, nil, :class => "label-sign" %>
+                <%= password_field_tag :password, nil, :class => "input-sign" %>        
+            </li>
+
+            <div class="sign-in-button">
+                <button class="button-28" role="button">Log In </button>
+            </div>    
+
+        </ul>
+    <% end %>
+
 </div>
+
+
+

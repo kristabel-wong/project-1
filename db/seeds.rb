@@ -11,7 +11,7 @@ User.destroy_all
 
 u1 = User.create :first_name => 'Jane', :last_name => 'Doe', :email => 'janedoe@ga.co', :password => 'seed1', :image => 'i30senhwtl4tknfbadw2'
 u2 = User.create :first_name => 'John', :last_name => 'Smith', :email => 'johnsmith@ga.co', :password => 'seed2', :image => 'qzyku0gvnq3hqzollygr'
-u3 = User.create :first_name =>'Kris', :last_name => 'Wong', :email => 'kris@ga.co', :password => '1234', :image => 'kghhamtmyguftx2kbcro'
+u3 = User.create :first_name =>'Kris', :last_name => 'Wong', :email => 'kris@ga.co', :password => '1234', :image => 'kghhamtmyguftx2kbcro', :admin => true
 u4 = User.create :first_name =>'Claire', :last_name => 'Williams', :email => 'claire@ga.co', :password => '1234', :image => 'syqfh3qslzwhpmgyb0pb'
 u5 = User.create :first_name =>'Ben', :last_name => 'Miller', :email => 'ben@ga.co', :password => '1234', :image => 'tlzggrlbucpjhjejhw39'
 u6 = User.create :first_name =>'Jasmin', :last_name => 'Yusuf', :email => 'jas@ga.co', :password => '1234', :image => 'ehhulnbtfqy6gfrcdub3'
@@ -47,7 +47,7 @@ puts "#{ Booking.count } bookings."
 
 Trip.destroy_all
 
-t1 = Trip.create :image => 'fd33pjgxt4fas1ctzyvx', :car_make => "Suburu", :car_model => "Outback", :price => "10", :seat => '2', :time => "7:00", :date => "10/06/2022", :origin => 'Sydney', :destination => 'Jindabyne'
+t1 = Trip.create :image => 'fd33pjgxt4fas1ctzyvx', :car_make => "Suburu", :car_model => "Outback", :price => "10", :seat => '2', :time => "7:00", :date => "10/06/2022", :origin => 'Sydney', :destination => 'Jindabyne', :description => 'If you are heading to Perisher resort, like me, I can also drop you on the mountain if you prefer it over being dropped in Jindabyne'
 t2 = Trip.create :image => 'zpatqzwi0og49shesyau', :car_make => "Hyundai", :car_model => "i30", :price => "10", :seat => '2', :time => "10:00", :date => "11/06/2022", :origin => 'Sydney', :destination => 'Canberra', :description => 'Message me with any questions!'
 t3 = Trip.create :image => 'cdlaudwkz7mjyb2y0cgw', :car_make => "Volkswagon", :car_model => "Kombi", :price => "15", :seat => '4', :time => "17:00", :date => "12/06/2022", :origin => 'Sydney', :destination => 'Byron Bay', :description => 'I can drop passengers anywhere along this trip'
 t4 = Trip.create :image => 'cdlaudwkz7mjyb2y0cgw', :car_make => "Volkswagon", :car_model => "Kombi", :price => "15", :seat => '4', :time => "17:00", :date => "12/04/2022", :origin => 'Sydney', :destination => 'Byron Bay'

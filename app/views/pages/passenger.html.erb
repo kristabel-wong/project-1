@@ -16,7 +16,7 @@
                     <div class="trip-user-details">
                     <% if booking.trip.user.image.present? %>
                         <%= cl_image_tag(booking.trip.user.image, :class => 'default-trip-user', :transformation=>[
-                            {:aspect_ratio=>"1.0", :gravity=>"face", :width=>128, :zoom=>0.7, :crop=>"thumb"},
+                            {:aspect_ratio=>"1.0", :gravity=>"face", :background =>"#fbebcd", :width=>128, :zoom=>0.7, :crop=>"thumb"}, 
                             {:radius=>"max"}]) %>
                     <% else %>
                         <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-icon default-trip-user', :transformation=>[
@@ -45,7 +45,7 @@
                         <% end%>
 
                         <% (booking.trip.seat - booking.trip.bookings.count).times do %>
-                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon') %>
+                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
                         <% end %>
 
                     <% else %>

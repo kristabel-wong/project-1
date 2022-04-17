@@ -32,8 +32,10 @@
                 </ul>
 
 
-                <% if @current_user.id == @user.id %> <!-- only the user who created the trip can edit -->
-                    <button> <%= link_to 'Edit Profile', edit_user_path %></button>
+                <% if @current_user.id == @user.id %> 
+                    <div class="sign-in-button">
+                        <button class="button-29" role="button"><%= link_to 'Edit Profile', edit_user_path %></button>
+                    </div>   
 
             </div>
         </div>      
@@ -72,19 +74,23 @@
                                     </ul>
 
                                     <div class="trip-bookings-icons user-page">
-                                        <% trip.bookings.each do |booking| %>
-                                            <% if booking.user.image.present? %>
-                                                <%= cl_image_tag(booking.user.image, :class => 'default', :transformation=>[
-                                                    {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#DBE9EF", :crop=>"thumb"},
-                                                    {:radius=>"max"}]) %>
-                                            <% else %>
-                                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon default', :transformation=>[
-                                                    {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
+                                        <% unless trip.seat > 7 %> <!-- 7 icons can fit onto the user page -->
+                                            <% trip.bookings.each do |booking| %>
+                                                <% if booking.user.image.present? %>
+                                                    <%= cl_image_tag(booking.user.image, :class => 'default', :transformation=>[
+                                                        {:aspect_ratio=>"1.0", :gravity=>"face", :width=>50, :zoom=>0.7, :background =>"#DBE9EF", :crop=>"thumb"},
+                                                        {:radius=>"max"}]) %>
+                                                <% else %>
+                                                    <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon default', :transformation=>[
+                                                        {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#DBE9EF"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
+                                                <% end %>
                                             <% end %>
-                                        <% end %>
 
-                                        <% (trip.seat - trip.bookings.count).times do  %>
-                                            <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                                            <% (trip.seat - trip.bookings.count).times do  %>
+                                                <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                                        <% end %>
+                                    <% else %>
+                                        <p> <strong> Please click into booking to see more details </strong> </p> <!-- can't fit more than 4 icons on the trip listing -->
                                     <% end %>
                                     </div>
                                 </div>
@@ -234,9 +240,15 @@
             </ul>
 
 
-            <% if @current_user.id == @user.id %> <!-- only the user who created the trip can edit -->
-                <button> <%= link_to 'Edit Profile', edit_user_path %></button>
+            <% if @current_user.id == @user.id %> 
+                <div class="sign-in-button">
+                    <button class="button-29" role="button"><%= link_to 'Edit Profile', edit_user_path %></button>
+                </div>   
+      
             <% end %>
+
+            
+ 
         </div>      
     
 <% end %>

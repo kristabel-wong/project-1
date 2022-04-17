@@ -1,13 +1,19 @@
-<h1 class='comment-heading'>New Comment</h1>
+<div class="trip-form">
 
-<%= form_for @comment do |f| %>
+    <h1 class='comment-heading'>New Comment</h1>
 
-    <%= f.text_area :content, size: "50x5"  %>
-  
-    <%= f.hidden_field :trip_id, value: @trip.id %>
-    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <div class="comment-form">
+        <%= form_for @comment do |f| %>
 
-    <div class="create-comment">
-        <%= f.submit %>
+            <%= f.text_area :content, size: "41x5"  %>
+        
+            <%= f.hidden_field :trip_id, value: @trip.id %>
+            <%= f.hidden_field :user_id, value: @current_user.id %>
+
+            <div class="create-comment">
+                <div class="trip-button"><button class="button-28-small" role="button">Create Comment</button></div>      
+            </div>
+        <% end %>
     </div>
-<% end %>
+
+</div>

@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.create comment_params
         @comment.save
+        flash[:message] = " 💬  Your comment has been created "
         redirect_to trip_path(params[:comment][:trip_id])
     end
 
@@ -18,12 +19,14 @@ class CommentsController < ApplicationController
     def update
         @comment = Comment.find params[:id]
         @comment.update comment_params
+        flash[:update] = " 💬  Your comment has been edited "
         redirect_to trip_path(params[:comment][:trip_id])
     end
 
     def destroy
         @comment = Comment.find params[:format]
         @comment.destroy
+        flash[:update] = " 💬  Your comment has been deleted "
         redirect_to trip_path(params[:id])
     end
 

@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+    before_action :check_for_admin, :only => [:index, :destroy]
+
+    def index 
+        @users = User.all
+    end
+
     def new
         @user = User.new
     end
@@ -42,8 +48,19 @@ class UsersController < ApplicationController
         @user = User.find params[:id]
     end
 
+    def destroy
+        @user = User.find params[:id]
+        @user.destroy
+        flash[:message] = " ❌ User has been deleted "
+        redirect_to users_path
+    end
+
     private
     def user_params
         params.require(:user).permit(:email, :first_name, :last_name, :image, :password, :password_confirmation)
+    end
+
+    def check_for_admin
+        redirect_to login_path unless (@current_user.present? && @current_user.admin?)
     end
 end

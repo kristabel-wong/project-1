@@ -16,7 +16,7 @@ nav {
 }
 
 
-a:visited, a:hover, a {
+.nav-bar a:visited, a:hover, a {
     text-decoration: none;
     color: black;
 }
@@ -262,7 +262,7 @@ span {
 }
 
 .booked {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background-color: blanchedalmond;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
@@ -291,7 +291,7 @@ span {
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     padding: 20px;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .comment-title {
@@ -319,6 +319,17 @@ span {
     text-align: center;
 }
 
+
+/* ---------------------- trip new/edit ----------------------- */
+
+.trip-form form {
+    width: 500px;
+}
+
+.trip-form .input-sign {
+    width: 300px;
+}
+
 /* ---------------------- User Page --------------------------- */
 
 .user-grid {
@@ -332,6 +343,7 @@ span {
 
 .user-profile-image {
     border-radius: 192px;
+    width: 192px;
 }
 
 .user-profile-info {
@@ -406,19 +418,32 @@ span {
     margin: 0;
 }
 
+/* ------------------------- Sign In/Forms ------------------------ */
 
-
-.sign {
-    width: 30vw;
+.sign, .trip-form {
+    width: 550px;
     margin: 0 auto;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    border-radius: 20px;
+    padding: 20px;
 }
 
-.sign ul {
+.sign h1 {
+    text-align: center;
+}
+
+.sign ul, .trip-form ul {
     list-style-type: none;
     line-height: 2em;
-    padding-left: 25px;
+    padding-left: 0;
 }
 
+.sign-in-button {
+    margin: 30px auto;
+    text-align: center;
+    width: 200px;
+}
 
 label {
     width: 200px;
@@ -431,7 +456,7 @@ label {
 
 
 form {
-    width: 500px;
+    width: 400px;
     margin: 0 auto;
 }
 
@@ -446,7 +471,7 @@ form {
 }
 
 .cloudinary-fileupload {
-    width: 208px;
+    width: 308px;
 }
 
 .new-trip {
@@ -461,7 +486,6 @@ form {
     display: flex;
     justify-content: flex-start;
 }
-
 
 
 .button-comment {
@@ -563,6 +587,183 @@ form {
     margin: 20px 0;
     text-align: center;
 }
+
+.comment-form {
+    text-align: center;
+}
+
+/* -----button sign in -------------- */
+
+.button-28 {
+    appearance: none;
+    background-color: transparent;
+    /* border: 2px solid #1A1A1A; */
+    color: #fff;
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    /* color: #3B3B3B; */
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+  
+.button-28:disabled {
+    pointer-events: none;
+}
+
+  
+.button-28:hover, .button-28 a:hover, .button-28 a:visited  {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+  
+.button-28:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+
+.button-29 {
+    appearance: none;
+    background-color: transparent;
+    border: 3px solid rgb(219, 233, 239);
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+  
+.button-29:disabled {
+    pointer-events: none;
+}
+  
+.button-29:hover {
+    color: #fff;
+    background-color: rgb(219, 233, 239);
+    box-shadow: rgba(148, 148, 148, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+  
+.button-29:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.trip-button {
+    display: inline-block;
+    text-align: center;
+}
+
+.button-28-small {
+    appearance: none;
+    background-color: transparent;
+    /* border: 2px solid #1A1A1A; */
+    color: #fff;
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    /* color: #3B3B3B; */
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 40px;
+    min-width: 0;
+    outline: none;
+    padding: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+  
+.button-28-small:disabled {
+    pointer-events: none;
+}
+
+  
+.button-28-small:hover, .button-28-small a:hover, .button-28-small a:visited, .button-28-small a:link, .button-28-small a:active  {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+  
+.button-28-small:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+
+/* ----------------- Admin/User Index page --------------- */
+
+.admin-page {
+    width: 700px;
+    margin: 0 auto;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 10px 10px 10px rgb(236, 236, 236);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.user-index-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.user-index {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 
 /* ---------------------- Map --------------------- */
 

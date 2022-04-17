@@ -1,6 +1,6 @@
+<div class="trip-form">
 
-
-<h1>Edit Profile</h1>
+<h1 class="new-trip">Edit Profile</h1>
 
 <%= form_for @user, :html => {:multipart => true } do |f| %> 
     <ul>
@@ -29,8 +29,11 @@
             <%= f.password_field :password_confirmation, :class => "input-sign"  %>
         </li>
 
-        <%= f.submit "Save" %>
+        <div class="sign-in-button">
+            <button class="button-28" role="button">Save </button>
+        </div>           
+
     </ul>
 <% end %>
 
-
+</div>

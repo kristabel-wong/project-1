@@ -1,49 +1,54 @@
-<%= form_for @trip do |f| %>
-<ul>
-    <li class="list-form">
-        <%= f.label :origin, :class => "label-sign"  %>
-        <%= f.text_field :origin, :placeholder => "Sydney", :required => true, :class => "input-sign" %>
-    </li>
-    <li class="list-form">
-        <%= f.label :destination, :class => "label-sign"  %>
-        <%= f.text_field :destination, :placeholder => "Melbourne", :required => true, :class => "input-sign" %>
-    </li>
-    <li class="list-form">
-        <%= f.label :date, :class => "label-sign"  %>
-        <%= f.date_field :date, :placeholder => 'DD-MM-YYYY', :required => true, :class => "input-sign"  %>
-    </li>
-    <li class="list-form">
-        <%= f.label :time, :class => "label-sign"  %>
-        <%= f.time_field :time, :placeholder => '07:00', :required => true, :class => "input-sign"  %>
-    </li>
-    <li class="list-form">
-        <%= f.label :seat, :class => "label-sign"  %>
-        <%= f.text_field :seat, :placeholder => "1", :required => true, :class => "input-sign" %>
-    </li>
-    <li class="list-form">
-        <%= f.label :price, :class => "label-sign"  %>
-        <%= f.text_field :price, :placeholder => "10", :required => true, :class => "input-sign" %>
-    </li>
 
-    <li class="list-form">
-        <%= f.label :car_make, :class => "label-sign"  %>
-        <%= f.text_field :car_make, :placeholder => "Toyota", :class => "input-sign" %>
-    </li>
-    <li class="list-form">
-        <%= f.label :car_model, :class => "label-sign"  %>
-        <%= f.text_field :car_model, :placeholder => "Corolla", :class => "input-sign" %>
-    </li>
-    <li class="list-form">
-        <%= f.label :image, "Picture of your Car", :class => "label-sign"  %>
-        <%= f.cl_image_upload :image, :placeholder => "http://...", :class => "input-sign" %> 
-    </li>
-    <li class="list-form">
-        <%= f.label :description, :class => 'description label-sign' %>
-        <%= f.text_area :description, :placeholder => "Heading to Jindabyne, leaving from Sydney near Central Station..... [How much baggage room do you have for passengers?]", size: "70x5", :class => "input-sign" %>
-    </li>
+<div class="trip-form">
+    <%= form_for @trip do |f| %>
+    <ul>
+        <li class="list-form">
+            <%= f.label :origin, :class => "label-sign"  %>
+            <%= f.text_field :origin, :placeholder => "Sydney", :required => true, :class => "input-sign" %>
+        </li>
+        <li class="list-form">
+            <%= f.label :destination, :class => "label-sign"  %>
+            <%= f.text_field :destination, :placeholder => "Melbourne", :required => true, :class => "input-sign" %>
+        </li>
+        <li class="list-form">
+            <%= f.label :date, :class => "label-sign"  %>
+            <%= f.date_field :date, :placeholder => 'DD-MM-YYYY', :required => true, :class => "input-sign"  %>
+        </li>
+        <li class="list-form">
+            <%= f.label :time, :class => "label-sign"  %>
+            <%= f.time_field :time, :placeholder => '07:00', :required => true, :class => "input-sign"  %>
+        </li>
+        <li class="list-form">
+            <%= f.label :seat, :class => "label-sign"  %>
+            <%= f.number_field :seat, :min =>"0", :placeholder => "1", :required => true, :class => "input-sign" %>
+        </li>
+        <li class="list-form">
+            <%= f.label :price, :class => "label-sign"  %>
+            <%= f.number_field :price, :min =>"0", :placeholder => "10", :required => true, :class => "input-sign" %>
+        </li>
 
-        <%= f.hidden_field :user_id, :value => @current_user.id %>
+        <li class="list-form">
+            <%= f.label :car_make, :class => "label-sign"  %>
+            <%= f.text_field :car_make, :placeholder => "Toyota", :class => "input-sign" %>
+        </li>
+        <li class="list-form">
+            <%= f.label :car_model, :class => "label-sign"  %>
+            <%= f.text_field :car_model, :placeholder => "Corolla", :class => "input-sign" %>
+        </li>
+        <li class="list-form">
+            <%= f.label :image, "Picture of your Car", :class => "label-sign"  %>
+            <%= f.cl_image_upload :image, :class => "input-sign" %> 
+        </li>
+        <li class="list-form">
+            <%= f.label :description, :class => 'description label-sign' %>
+            <%= f.text_area :description, :placeholder => "Heading to Jindabyne, leaving from Sydney near Central Station..... [How much baggage room do you have for passengers?]", size: "70x5", :class => "input-sign" %>
+        </li>
 
-    <%= f.submit %>
-</ul>
-<% end %>
+            <%= f.hidden_field :user_id, :value => @current_user.id %>
+
+        <div class="sign-in-button">
+            <button class="button-28" role="button">Submit </button>
+        </div>  
+    </ul>
+    <% end %>
+</div>
