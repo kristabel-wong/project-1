@@ -160,5 +160,5 @@ APIs:
 
 ![screenshot](/app/assets/images/hitch-a-ride-1.png)
 ![screenshot2](/app/assets/images/hitch-a-ride-2.png)
-![screenshot3](/app/assets/images/hitch-a-ride-3.png)
+![screenshot3a](/app/assets/images/hitch-a-ride-3.png)
 ![screenshot4](/app/assets/images/hitch-a-ride-4.png)
