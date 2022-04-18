@@ -156,8 +156,12 @@ APIs:
 * Make headings on profile page collapsible
 * Allow users to delete themselves
 * Optimization for mobiles and other devices
+* Love to do an array of pictures of Australia that replace the home page image with every refresh.
 
 ## Screenshots
+
+### Home Page
+![screenshot-home](/app/assets/images/hitch-a-ride-home.png)
 ### Trip Index Page
 ![screenshot](/app/assets/images/hitch-a-ride-1.png)
 
@@ -166,4 +170,4 @@ APIs:
 ![screenshot3a](/app/assets/images/hitch-a-ride-3.png)
 
 ### User Profile Page
-![screenshot4](/app/assets/images/hitch-a-ride-4.png)
+![screenshot4a](/app/assets/images/hitch-a-ride-4.png)

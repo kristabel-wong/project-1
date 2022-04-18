@@ -41,7 +41,7 @@ nav {
 /* ------------------------ Home page ------------------------- */
 
 .home-page {
-    background-image: url(/assets/jake-hills-TfJKSjoESc4-unsplash.jpg);
+    background-image: url(/assets/erico-marcelino-PY7e4h-lHBg-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
@@ -326,6 +326,9 @@ span {
     text-align: center;
 }
 
+.description {
+    display: block;
+}
 
 /* ---------------------- trip new/edit ----------------------- */
 
@@ -395,13 +398,6 @@ span {
     width: 200px;
 }
 
-/* ------------------------------------------------------- */
-
-
-
-.description {
-    display: block;
-}
 
 /* ---------------------- Passenger Page --------------------------- */
 
@@ -526,7 +522,6 @@ form {
     grid-column-gap: 5px;
     text-align: center;
 }
-
 
 .th {
     text-transform: uppercase;
