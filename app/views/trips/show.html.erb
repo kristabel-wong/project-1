@@ -175,7 +175,7 @@
 
                         <% elsif @current_user == @trip.user %>
                             <div class="button-comment">
-                                <div class="trip-button"><%= button_to "Delete #{booking.user.first_name} Booking", trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :title => "Delete Booking", :class => "button-28-small", :data => { :confirm => 'Are you sure you want to delete your booking?' } %> 
+                                <div class="trip-button"><%= button_to "Delete #{booking.user.first_name}'s Booking", trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :title => "Delete Booking", :class => "button-28-small", :data => { :confirm => 'Are you sure you want to delete your booking?' } %> 
                                 </div>   
                             </div> 
                         <% end %> 
