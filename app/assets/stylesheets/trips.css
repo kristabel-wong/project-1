@@ -191,6 +191,10 @@ span {
     text-transform: uppercase;
 }
 
+.extra {
+    color: rgb(185, 185, 185);
+}
+
 
 /* ------------------ Trips Show Page --------------------- */
 
