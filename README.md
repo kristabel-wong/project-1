@@ -149,6 +149,7 @@ APIs:
 ## To Do List
 
 * Instant Messaging
+* Add payment method (none at the moment)
 * Search for users - admin purposes
 * User ratings
 * Notifications for users when trips have been edited or deleted. 
