@@ -15,13 +15,10 @@ nav {
     font-weight: bold;
 }
 
-
 .nav-bar a:visited, a:hover, a {
     text-decoration: none;
     color: black;
 }
-
-
 
 /* ----------------- flash messages -------------------------- */
 
@@ -45,7 +42,7 @@ nav {
 
 .home-page {
     background-image: url(/assets/jake-hills-TfJKSjoESc4-unsplash.jpg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     height: 60vh;
@@ -379,10 +376,6 @@ span {
     text-align: left;
 }
 
-.trip-container-user-page {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-}
 
 .user-page {
     margin-top: 20px; 

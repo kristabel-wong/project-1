@@ -41,6 +41,12 @@ b16 = Booking.create
 b17 = Booking.create 
 b18 = Booking.create 
 b19 = Booking.create 
+b20 = Booking.create 
+b21 = Booking.create 
+b22 = Booking.create 
+b23 = Booking.create 
+b24 = Booking.create 
+b25 = Booking.create 
 
 
 puts "#{ Booking.count } bookings."
@@ -59,7 +65,7 @@ t9 = Trip.create :image => 'vxb3symswzw7wdjvrkey', :car_make => 'Jeep', :car_mod
 t10 = Trip.create :car_make => 'Hyundai', :car_model => 'i30', :price => '10', :seat => '3', :time => '5:00', :date => '5/02/2023', :origin => 'Mackay', :destination => 'Whitsundays'
 t11 = Trip.create :image => 'vxb3symswzw7wdjvrkey', :car_make => 'Jeep', :car_model => 'Wrangler', :price => '50', :seat => '3', :time => '6:00', :date => '17/10/2023', :origin => 'Fremantle', :destination => 'Margaret River'
 t12 = Trip.create :image => 'vxb3symswzw7wdjvrkey', :car_make => 'Jeep', :car_model => 'Wrangler', :price => '50', :seat => '2', :time => '8:00', :date => '5/11/2023', :origin => 'Adelaide', :destination => 'Barossa Valley', :description => "Hoping to explore more wineries while I'm in Australia. If you're heading up that way, happy to drop you off at any wineries on the way!"
-t13 = Trip.create :image => 'cdlaudwkz7mjyb2y0cgw', :car_make => "Volkswagon", :car_model => "Kombi", :price => "15", :seat => '5', :time => "08:00", :date => "12/07/2022", :origin => 'Byron Bay', :destination => 'Sydney', :description => 'I can drop passengers anywhere along this trip'
+t13 = Trip.create :image => 'cdlaudwkz7mjyb2y0cgw', :car_make => "Volkswagon", :car_model => "Kombi", :price => "15", :seat => '6', :time => "08:00", :date => "12/07/2022", :origin => 'Byron Bay', :destination => 'Sydney', :description => 'I can drop passengers anywhere along this trip'
 t21 = Trip.create :price => '15', :seat => '2', :time => '8:00', :date => '07/09/2022', :origin => 'Nowra', :destination => 'Bathurst', :description => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
 t14 = Trip.create :image => 'fd33pjgxt4fas1ctzyvx', :car_make => 'Suburu', :car_model => 'Outback', :price => "15", :seat => '2', :time => "08:00", :date => "15/03/2022", :origin => 'Gerringong', :destination => 'Coffs Harbour, NSW'
@@ -70,6 +76,7 @@ t18 = Trip.create :image => 'i47fqaij4kezxu0otsc8', :car_make => 'Hyundai', :car
 t19 = Trip.create :image => 'x3gzluou1x0kt72kkmm4', :car_make => 'Tesla', :car_model => 'Model 3', :price => "20", :seat => '2', :time => "08:00", :date => "08/01/2022", :origin => 'Brisbane', :destination => 'Coolangatta'
 t20 = Trip.create :image => 'ce73tcldrrtkx2ksynkw', :car_make => 'Hyhndai', :car_model => 'i30', :price => "30", :seat => '2', :time => "08:00", :date => "02/11/2021", :origin => 'Hobart, TAS', :destination => 'Cradle Mountain, TAS', :description => 'Pick up point near Mona'
 t22 = Trip.create :image => 'cdlaudwkz7mjyb2y0cgw', :car_make => "Volkswagon", :car_model => "Kombi", :price => "15", :seat => '4', :time => "17:00", :date => "05/04/2022", :origin => 'Sydney', :destination => 'Byron Bay'
+t23 = Trip.create :image => 'fd33pjgxt4fas1ctzyvx', :car_make => "Suburu", :car_model => "Outback", :price => "10", :seat => '3', :time => "7:00", :date => "10/06/2021", :origin => 'Sydney', :destination => 'Jindabyne', :description => 'If you are heading to Perisher resort, like me, I can also drop you on the mountain if you prefer it over being dropped in Jindabyne'
 
 puts "#{ Trip.count } trips."
 
@@ -90,7 +97,7 @@ c12 = Comment.create :content => "Yep!"
 
 puts "#{ Comment.count } comments."
 
-u1.trips << t1 << t2 << t5
+u1.trips << t1 << t2 << t5 << t23
 u2.trips << t3 << t4 << t8 << t13 << t22
 u4.trips << t6 << t18 << t19
 u5.trips << t10 << t9 << t15 << t16
@@ -112,13 +119,13 @@ t8.comments << c6
 t7.comments << c7
 t9.comments << c11 << c12
 
-u1.bookings << b1 << b9 << b16 
-u2.bookings << b2 << b3 << b17 
-u3.bookings << b4 << b5 << b6 << b15
-u6.bookings << b7 << b8 << b18
-u4.bookings << b19
+u1.bookings << b1 << b9 << b16 << b25
+u2.bookings << b2 << b3 << b17 << b24
+u3.bookings << b4 << b5 << b6 << b15 << b20
+u6.bookings << b7 << b8 << b18 << b23
+u4.bookings << b19 << b21
 u7.bookings << b10 << b11 << b12
-u8.bookings << b13 << b14  
+u8.bookings << b13 << b14  << b22
 
 t1.bookings << b2 << b6
 t2.bookings << b7
@@ -136,3 +143,6 @@ t16.bookings << b15
 t17.bookings << b17
 t18.bookings << b18
 t19.bookings << b16
+t21.bookings << b25
+t23.bookings << b20 << b21 << b22 
+t22.bookings << b23 << b24

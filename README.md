@@ -10,6 +10,7 @@ https://hitch-a-ride22-project-1.herokuapp.com/
 ## For Drivers:
 
 * Fill empty seats to cover your driving costs
+* You can choose who your passengers are
 
 
 
@@ -56,8 +57,8 @@ Password: seed2
     <br/>
 
 4. Post & Edit trips
-    * Add in origin and destinations (will provide map on ) 
-    * Date parameters will return invalid if you choose past date
+    * Add in origin and destinations (will provide map on trips show page) 
+    * Date parameters will return invalid if you choose past date (flash message will appear)
     * Cannot enter negative numbers for price or number of seats available
     * If an image of a car is not provided, a default will be provided. 
 
@@ -80,7 +81,7 @@ Password: seed2
 6. Trip Show Page 
     * Shows trip in more detail with trip description, trips driven and passengers driven by driver user
     * Comments to communicate between driver and user (edit and delete comments)
-    * Book Trip button (will not show booking button if trip is full)
+    * Book Trip button (will not show booking button if trip is full) - Delete Booking button available to user who made the booking and the trips driver
     * Edit and Delete Buttons visible only for the trip driver 
     * Google Map API used to show origin and destination points
     * Trip will show "Expired" in title if the trip has expired

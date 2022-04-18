@@ -145,7 +145,7 @@
             <div class="trip-show-bookings">
                 <div class="trip-show-user">
                     <% @trip.bookings.each do |booking| %>
-                        <% if @current_user == booking.user %>
+                        <% if @current_user == booking.user || @current_user == @trip.user %>
                             <% if booking.user.image.present? %>
                     
                                 <%= cl_image_tag(booking.user.image, :transformation=>[
@@ -167,7 +167,7 @@
                     <% end %>
 
                     <% @trip.bookings.each do |booking| %> 
-                        <% if @current_user == booking.user && booking.trip.date > Date.today %> 
+                        <% if @current_user == booking.user && booking.trip.date > Date.today || @current_user == @trip.user %> 
                             <div class="button-comment">
                                 <div class="trip-button"><%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :title => "Delete Booking", :class => "button-28-small", :data => { :confirm => 'Are you sure you want to delete your booking?' } %> 
                                 </div>   
