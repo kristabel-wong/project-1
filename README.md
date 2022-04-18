@@ -81,7 +81,7 @@ Password: seed2
 6. Trip Show Page 
     * Shows trip in more detail with trip description, trips driven and passengers driven by driver user
     * Comments to communicate between driver and user (edit and delete comments)
-    * Book Trip button (will not show booking button if trip is full) - Delete Booking button available to user who made the booking and the trips driver
+    * Book Trip button (will not show booking button if trip is full) - Delete Booking button available to user who made the booking and the trips driver (with names - hover over icons for passenger names)
     * Edit and Delete Buttons visible only for the trip driver 
     * Google Map API used to show origin and destination points
     * Trip will show "Expired" in title if the trip has expired

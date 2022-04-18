@@ -1,6 +1,13 @@
 <h1 class="search-title">Search</h1>
 
-<h3 class="search-results"> <%= pluralize(@trips.count, "Result") %></h3>
+<% valid_trips = 0 %>
+<% @trips.each do |trip| %>
+    <% unless trip.date < Time.now %>
+        <% valid_trips += 1 %>
+    <% end %>
+<% end %>
+
+<h3 class="search-results"> <%= pluralize(valid_trips, "Result") %></h3>
 
 <div class="search-area">
     <%= render 'search/form' %>

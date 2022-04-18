@@ -148,12 +148,12 @@
                         <% if @current_user == booking.user || @current_user == @trip.user %>
                             <% if booking.user.image.present? %>
                     
-                                <%= cl_image_tag(booking.user.image, :transformation=>[
+                                <%= cl_image_tag(booking.user.image, :title => "#{booking.user.first_name}", :transformation=>[
                                     {:aspect_ratio=>"1.0", :gravity=>"face", :width=>60, :zoom=>0.7, :background =>"#fbebcd", :crop=>"thumb"},
                                     {:radius=>"max"}]) %>
 
                             <% else %>
-                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :class => 'trip-seat-icon-show-default', :transformation=>[
+                                <%= cl_image_tag('cpbz8sbbm0gujijrcrvw', :title => "#{booking.user.first_name}", :class => 'trip-seat-icon-show-default', :transformation=>[
                                     {:overlay=>{:font_family=>"Hind", :font_size=>60, :font_weight=>"bold", :text=>"DEFAULT"}, :color=>"#fbebcd"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>140}])%>
 
                             <% end %>
@@ -167,12 +167,17 @@
                     <% end %>
 
                     <% @trip.bookings.each do |booking| %> 
-                        <% if @current_user == booking.user && booking.trip.date > Date.today || @current_user == @trip.user %> 
+                        <% if @current_user == booking.user && booking.trip.date > Date.today %> 
                             <div class="button-comment">
                                 <div class="trip-button"><%= button_to 'Delete Booking', trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :title => "Delete Booking", :class => "button-28-small", :data => { :confirm => 'Are you sure you want to delete your booking?' } %> 
                                 </div>   
                             </div>   
 
+                        <% elsif @current_user == @trip.user %>
+                            <div class="button-comment">
+                                <div class="trip-button"><%= button_to "Delete #{booking.user.first_name} Booking", trip_booking_path(booking.trip_id, booking.id), :method => 'delete', :title => "Delete Booking", :class => "button-28-small", :data => { :confirm => 'Are you sure you want to delete your booking?' } %> 
+                                </div>   
+                            </div> 
                         <% end %> 
                     <% end %>
                 </div>
