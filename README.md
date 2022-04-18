@@ -157,8 +157,12 @@ APIs:
 * Optimization for mobiles and other devices
 
 ## Screenshots
-
+### Trip Index Page
 ![screenshot](/app/assets/images/hitch-a-ride-1.png)
+
+### Trip Show Page
 ![screenshot2](/app/assets/images/hitch-a-ride-2.png)
 ![screenshot3a](/app/assets/images/hitch-a-ride-3.png)
+
+### User Profile Page
 ![screenshot4](/app/assets/images/hitch-a-ride-4.png)
