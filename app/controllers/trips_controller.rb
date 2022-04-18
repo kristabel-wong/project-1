@@ -13,7 +13,7 @@ class TripsController < ApplicationController
         trip = Trip.create trip_params unless params[:trip][:date] < Time.now # if @current_user.id == params[:user_id]
         @current_user.trips << trip unless trip.nil?
         if trip
-            flash[:message] = "Success! Trip Created 🚗 "
+            flash[:message] = " 🚗 Success! Trip Created  "
             redirect_to trip
         else
             flash[:trip_error] = " 🚫 Error: Invalid Date "
@@ -28,6 +28,7 @@ class TripsController < ApplicationController
     def update
         trip = Trip.find params[:id]
         trip.update trip_params
+        flash[:update] = " 🚗  Your trip has been updated "
         redirect_to trip
     end
 
@@ -40,6 +41,7 @@ class TripsController < ApplicationController
     def destroy
         trip = Trip.find params[:id]
         trip.destroy
+        flash[:message] = " 🚗  Your trip has been deleted "
         redirect_to trips_path
     end
 

@@ -26,7 +26,7 @@
                 <div class="trip-index-info">
                     <ul>
                         <li>Car: <%= trip.car_make %> <%= trip.car_model %></li>
-                        <li>Spots booked:  </li>
+                        <li>Spots booked: <% if trip.bookings.count > 0 %> <%= trip.bookings.count%> <% end %></li>
                     </ul>
 
                     <div class="trip-bookings-icons">
@@ -47,7 +47,18 @@
                             <% end %>
 
                         <% else %>
-                            <p> <strong> Please click into booking to see more details </strong> </p> <!-- can't fit more than 4 icons on the trip listing -->
+                            <p class="extra"> <!-- can't fit more than 4 icons on the trip listing -->
+                                <% if (trip.seat - trip.bookings.count) > 4 %> 
+                                    <% (3).times do  %>
+                                        <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                                    <% end %>
+                                    &nbsp;•&nbsp;&nbsp;•&nbsp;&nbsp;•&nbsp;
+                                <% else %>
+                                    <% (trip.seat - trip.bookings.count).times do  %>
+                                        <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                                    <% end %>
+                                <% end %>
+                            </p> 
                         <% end %>
                     </div>
                 </div>

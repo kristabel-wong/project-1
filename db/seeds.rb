@@ -69,6 +69,7 @@ t17 = Trip.create :price => "25", :seat => '2', :time => "08:00", :date => "10/0
 t18 = Trip.create :image => 'i47fqaij4kezxu0otsc8', :car_make => 'Hyundai', :car_model => 'i30', :price => "20", :seat => '2', :time => "08:00", :date => "15/07/2021", :origin => 'Albury, NSW', :destination => 'Mildura, VIC'
 t19 = Trip.create :image => 'x3gzluou1x0kt72kkmm4', :car_make => 'Tesla', :car_model => 'Model 3', :price => "20", :seat => '2', :time => "08:00", :date => "08/01/2022", :origin => 'Brisbane', :destination => 'Coolangatta'
 t20 = Trip.create :image => 'ce73tcldrrtkx2ksynkw', :car_make => 'Hyhndai', :car_model => 'i30', :price => "30", :seat => '2', :time => "08:00", :date => "02/11/2021", :origin => 'Hobart, TAS', :destination => 'Cradle Mountain, TAS', :description => 'Pick up point near Mona'
+t22 = Trip.create :image => 'cdlaudwkz7mjyb2y0cgw', :car_make => "Volkswagon", :car_model => "Kombi", :price => "15", :seat => '4', :time => "17:00", :date => "05/04/2022", :origin => 'Sydney', :destination => 'Byron Bay'
 
 puts "#{ Trip.count } trips."
 
@@ -90,7 +91,7 @@ c12 = Comment.create :content => "Yep!"
 puts "#{ Comment.count } comments."
 
 u1.trips << t1 << t2 << t5
-u2.trips << t3 << t4 << t8 << t13
+u2.trips << t3 << t4 << t8 << t13 << t22
 u4.trips << t6 << t18 << t19
 u5.trips << t10 << t9 << t15 << t16
 u6.trips << t7 << t20

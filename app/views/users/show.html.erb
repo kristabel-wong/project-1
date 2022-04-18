@@ -1,3 +1,22 @@
+<% trips_driven = 0 %>
+<% @user.trips.each do |trip| %>
+    <% unless trip.date > Time.now %>
+        <% trips_driven += 1 %> 
+    <% end %>
+<% end %>
+
+<% passengers = 0 %>
+<% @user.trips.each do |trip| %>
+    <% unless trip.date > Time.now %>
+        <% trip.bookings.each do |booking| %>
+            <% passengers += 1 %> 
+        <% end %>
+    <% end %>
+<% end %>
+
+
+
+
 <% if @user.trips.present? %>
     <div class="user-grid">
         <div>
@@ -7,7 +26,7 @@
                     <% if @current_user.id == @user.id%>
                         <h1>Your Profile</h1>
                     <% else %>
-                        <h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
+                        <h1><%= @user.first_name %> <%= @user.last_name %>'s Profile </h1>
                     <% end %>
                 <% end %>
 
@@ -28,12 +47,14 @@
                     <% if @current_user.id == @user.id%>
                         <li class="list-profile"> <div class="other-list"><strong>Last Name: </strong></div><%= @user.last_name %> </li>
                         <li class="list-profile"> <div class="other-list"><strong>Email Address: </strong> </div><%= @user.email %></li>
+                        <li class="list-profile"> <div class="other-list"><strong>Trips Driven: </strong> </div><%=trips_driven %></li>
+                        <li class="list-profile"> <div class="other-list"><strong>Users Driven: </strong> </div><%= passengers %></li>
                     <% end %>
                 </ul>
 
 
                 <% if @current_user.id == @user.id %> 
-                    <div class="sign-in-button">
+                    <div class="edit-profile-button">
                         <button class="button-29" role="button"><%= link_to 'Edit Profile', edit_user_path %></button>
                     </div>   
 
@@ -124,8 +145,6 @@
                     <% end%>
                 <% end %>
             <% end%>
-
-
 
 
         <h2>Completed Trips</h2>
@@ -241,7 +260,7 @@
 
 
             <% if @current_user.id == @user.id %> 
-                <div class="sign-in-button">
+                <div class="edit-profile-button">
                     <button class="button-29" role="button"><%= link_to 'Edit Profile', edit_user_path %></button>
                 </div>   
       

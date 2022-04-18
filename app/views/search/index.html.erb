@@ -14,6 +14,7 @@
             <div class="th">To</div>
             <div class="th">Date</div>
             <div class="th">Time</div>
+            <div class="th">Price</div>
             <div class="th">User</div>
         </div>
     </div>
@@ -26,6 +27,7 @@
                         <div><%= trip.destination %></div>
                         <div><%= trip.date.strftime('%e %b %Y') %></div>
                         <div><%= trip.time.strftime('%l:%M %p') %></div>
+                        <div><%= number_to_currency trip.price, precision: 0  %></div>
                         <div class="end-result"><%= trip.user.first_name %></div>
                     </div>
                 <% end %>

@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find params[:id]
         @user.destroy
-        flash[:message] = " ❌ User has been deleted "
+        flash[:message] = " ❌ User #{@user.id} - #{@user.first_name} #{@user.last_name} has been deleted "
         redirect_to users_path
     end
 

@@ -194,6 +194,7 @@ span {
     text-transform: uppercase;
 }
 
+
 /* ------------------ Trips Show Page --------------------- */
 
 .trip-user-info {
@@ -220,6 +221,15 @@ span {
     text-align: center;
 }
 
+
+.trip-show-driver-name h3 {
+    margin-bottom: 0;
+}
+
+.trip-show-driver-name p {
+    margin-top: 0;
+    font-size: smaller;
+}
 
 .trip-show-car {
     margin: 0 auto;
@@ -356,6 +366,10 @@ span {
     top: 60px;
 }
 
+.user-profile-info h1 {
+    margin: 10px;
+}
+
 .user-heading {
     margin: 0;
 }
@@ -380,6 +394,12 @@ span {
 
 .default-icon {
     margin: 0 auto;
+}
+
+.edit-profile-button {
+    margin: 20px auto 10px auto;
+    text-align: center;
+    width: 200px;
 }
 
 /* ------------------------------------------------------- */
@@ -505,13 +525,15 @@ form {
     background-color:  rgb(219, 233, 239);
     height: 50px;
     margin: 10px auto;
-    padding: 20px 30px 0 30px;
+    padding-top: 20px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
+    grid-template-columns: 3fr 3fr 2fr 2fr 1fr 2fr;
+    grid-column-gap: 5px;
     text-align: center;
 }
+
 
 .th {
     text-transform: uppercase;
@@ -557,8 +579,7 @@ form {
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
-    grid-column: white;
+    grid-template-columns: 3fr 3fr 2fr 2fr 1fr 2fr;
     grid-column-gap: 3px;
     text-align: center;
     background-color: rgb(219, 233, 239);
@@ -747,21 +768,21 @@ form {
     border: 3px solid rgb(0, 0, 0);
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px 20px 20px 40px;
     text-align: center;
 }
 
 
 .user-index-heading {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 70px 1fr 1fr 1fr 1fr;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 .user-index {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 70px 1fr 1fr 1fr 1fr;
 }
 
 
@@ -772,7 +793,7 @@ form {
 #map {
     width: 960px;
     height: 600px;
-    margin: 70px auto;
+    margin: 30px auto;
 }
 
 

@@ -28,7 +28,7 @@
                 <div class="trip-index-info">
                     <ul>
                         <li>Car: <%= booking.trip.car_make %> <%= booking.trip.car_model %></li>
-                        <li>Spots booked: </li>
+                        <li>Spots booked: <%= booking.trip.bookings.count %> </li>
                     </ul>
 
                     <div class="trip-bookings-icons">
@@ -106,7 +106,7 @@
                 <div class="trip-index-info">
                     <ul>
                         <li>Car: <%= booking.trip.car_make %> <%= booking.trip.car_model %></li>
-                        <li>Spots booked: </li>
+                        <li>Spots booked: <%= booking.trip.bookings.count %></li>
                     </ul>
 
                     <div class="trip-bookings-icons">
