@@ -11,10 +11,9 @@ https://hitch-a-ride22-project-1.herokuapp.com/
 
 * Fill empty seats to cover your driving costs
 
-<br/>
+
 
 ### Logins
------------------------------------
 
 Admin:
 <pre>
@@ -31,10 +30,9 @@ Email: johnsmith@ga.co
 Password: seed2
 </pre>
 
-<br/>
 
 ## Features
------------------------------------
+
 1. Sign in/Sign out
 2. Create users profile
     * Add a profile picture or a default icon will be provided
@@ -125,7 +123,7 @@ Password: seed2
 
 
 ## Tools, Gems and APIs used
------------------------------------
+
 Ruby on rails was the main tool used to create this web application.
 * Ruby on Rails 5.2.7
 * SCSS & CSS 
@@ -140,7 +138,7 @@ Gems:
 APIs:
 * Google Maps API
 ## Bugs
------------------------------------
+
 *Bugs could not be solved due to time restraints*
 * Incorrect timezone 
 * Comment title for time and date won't display in full
@@ -148,7 +146,7 @@ APIs:
 
 
 ## To Do List
------------------------------------
+
 * Instant Messaging
 * Search for users - admin purposes
 * User ratings
@@ -159,7 +157,7 @@ APIs:
 * Optimization for mobiles and other devices
 
 ## Screenshots
------------------------------------
+
 ![screenshot](/app/assets/images/hitch-a-ride-1.png)
 ![screenshot2](/app/assets/images/hitch-a-ride-2.png)
 ![screenshot3](/app/assets/images/hitch-a-ride-3.png)
