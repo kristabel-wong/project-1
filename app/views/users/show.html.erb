@@ -93,7 +93,7 @@
                                     </ul>
 
                                     <div class="trip-bookings-icons user-page">
-                                        <% unless trip.seat > 7 %> <!-- 7 icons can fit onto the user page -->
+                                        <% unless trip.seat > 4 %> <!-- 7 icons can fit onto the user page -->
                                             <% trip.bookings.each do |booking| %>
                                                 <% if booking.user.image.present? %>
                                                     <%= cl_image_tag(booking.user.image, :class => 'default', :transformation=>[
@@ -109,7 +109,19 @@
                                                 <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
                                         <% end %>
                                     <% else %>
-                                        <p> <strong> Please click into booking to see more details </strong> </p> <!-- can't fit more than 4 icons on the trip listing -->
+ 
+                                        <p class="extra"> <!-- can't fit more than 4 icons on the trip listing -->
+                                        <% if (trip.seat - trip.bookings.count) > 4 %> 
+                                            <% (3).times do  %>
+                                                <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                                            <% end %>
+                                            &nbsp;•&nbsp;&nbsp;•&nbsp;&nbsp;•&nbsp;
+                                        <% else %>
+                                            <% (trip.seat - trip.bookings.count).times do  %>
+                                                <%= cl_image_tag('hujlldl6wpl8twbidml6', :class => 'trip-seat-icon default') %>
+                                            <% end %>
+                                        <% end %>
+                                        </p> 
                                     <% end %>
                                     </div>
                                 </div>

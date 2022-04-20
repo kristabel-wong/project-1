@@ -20,7 +20,7 @@
         </li>
         <li class="list-form">
             <%= f.label :seat, :class => "label-sign"  %>
-            <%= f.number_field :seat, :min =>"0", :placeholder => "1", :required => true, :class => "input-sign" %>
+            <%= f.number_field :seat, :min =>"0", :max =>"10", :placeholder => "1", :required => true, :class => "input-sign" %>
         </li>
         <li class="list-form">
             <%= f.label :price, :class => "label-sign"  %>
