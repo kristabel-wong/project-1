@@ -213,7 +213,8 @@
                 <% if @trip.comments.length != 0  %>
                     <% @trip.comments.order(:created_at).reverse_order.each do |comment| %>
                         <ul class="comment"> 
-                            <li title=<%= comment.created_at.strftime "%e %b %y - %l:%M %p" %>> <span class="comment-user"><%= comment.user.first_name %>:</span> </li>
+                            <li title="<%= raw comment.created_at.strftime('%e %b %y - %l:%M %p') %>" > <span class="comment-user"> <%= comment.user.first_name %>:</span> </li>
+
                             <li> <%= comment.content %>  </li>
                             <li>
                                 <% if @current_user == comment.user %>

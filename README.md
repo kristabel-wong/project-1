@@ -2,6 +2,12 @@
 
 Hitch-a-Ride is a platform to offer or find rides, connecting drivers and passengers heading to the same destination. It makes carpooling easy and affordable within Australia, as well as reducing our carbon footprint!
 https://hitch-a-ride22-project-1.herokuapp.com/ 
+
+<br/>
+I created this web application for my second individual project for General Assembly Software Engineering Immersive Course. We were tasked to create a CRUD system using everything we had learnt in the last 5 weeks about front and back end web development. We were given about a week and a half to create a functioning application complete with Models (at least 3), Views, Controllers, Gems and site deployment (Heroku).
+
+<br/>
+
 ## For Passengers:
 
 * Choose a driver based on their profile and trips driven.
@@ -31,7 +37,8 @@ Email: johnsmith@ga.co
 Password: seed2
 </pre>
 
-
+## Object Model Associations
+![screenshot-home](/app/assets/images/object-model-associations.png)
 ## Features
 
 1. Sign in/Sign out
@@ -142,7 +149,6 @@ APIs:
 
 *Bugs could not be solved due to time restraints*
 * Incorrect timezone 
-* Comment title for time and date won't display in full
 * Geocoder needs validator or the page will not show. An error will occur if user mistypes location or enters in scribble
 
 
