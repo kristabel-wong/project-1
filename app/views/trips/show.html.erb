@@ -71,7 +71,7 @@
         </div>
         <div class="trip-show-car">
             <% if @trip.image.present? %>
-                <%= cl_image_tag @trip.image, :class => 'thumb' %>
+                <%= cl_image_tag @trip.image, :class => 'thumb-trip-index' %>
             <% else %> 
                 <%= cl_image_tag('zpwkdm3rxbqpz3ljtd0a', :width=>275, :height=>115, :crop=>"fill", :transformation=>[
                         {:overlay=>{:font_family=>"Hind", :font_size=>30, :font_weight=>"bold", :text=>"DEFAULT ICON"}, :color=>"#000"},{:angle=>0, :flags=>"layer_apply", :x=>-5, :y=>95}

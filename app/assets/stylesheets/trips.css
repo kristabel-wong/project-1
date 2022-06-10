@@ -113,7 +113,13 @@ nav {
 
 
 .thumb {
+    height: 7em;
+}
+
+.thumb-trip-index {
     height: 10em;
+    position: relative;
+    top: -20px;
 }
 
 /* ------------- trip index page ------------------ */
@@ -128,7 +134,11 @@ nav {
     box-shadow: 10px 10px 10px rgb(236, 236, 236);
 }
 
-.trip-index h3 {
+/* .trip-index-h3 {
+    margin: 0 0 5px 0;
+} */
+
+.trip-index h4, .trip-index-h3, #trip-index-h3  {
     margin: 0 0 5px 0;
 }
 
@@ -141,24 +151,30 @@ nav {
     text-align: center;
 }
 
+.trip-user-details h3 {
+    margin: 10px 0;
+}
+
 .trip-icon {
-    width: 128px;
+    width: 100px;
 }
 
 .default-trip-user {
-    border-radius: 128px;
+    border-radius: 100px;
 }
 .car-image {
-    width: 330px;
-    height: 160px;
     margin: 0 auto;
     text-align: center;
     position: relative;
-    top: -20px;
 }
 
 .trip-index-info ul {
     margin: 0;
+}
+
+.trip-index-info-user ul {
+    margin: 0;
+    font-size: 90%;
 }
 
 .trip-bookings-icons {
@@ -354,21 +370,19 @@ span {
 .user-grid {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-column-gap: 80px;
-    width: 1380px;
-    position: absolute;
-    left: 80px;
+    grid-column-gap: 50px;
+    width: 100%;
 }
 
 .user-profile-image {
-    border-radius: 192px;
-    width: 192px;
+    border-radius: 150px;
+    width: 150px;
 }
 
 .user-profile-info {
     border: 3px solid rgb(219, 233, 239);
     border-radius: 20px;
-    width: 300px;
+    width: 250px;
     text-align: center;
     padding-bottom: 20px;
     position: sticky;
@@ -391,6 +405,7 @@ span {
 
 .user-page {
     margin-top: 20px; 
+    position: absolute;
 }
 
 .no-trips {
